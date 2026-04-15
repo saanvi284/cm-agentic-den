@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Capital Markets Agentic Den — brought to you by CM.AI. An exclusive event showcasing agentic AI in capital markets.">
+  <title>Capital Markets Agentic Den — CM.AI</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    const SUBMISSION_FORM_URL = ""; // TODO: set submission form URL
+    const TRACKER_URL = "";         // TODO: set Excel Agent Tracker URL
+  </script>
+
+  <style>
+    /* ============================================================
+       PALETTE
+       Snow          #fffbfa  — page background, hero, feature strip
+       Deep Space    #13293d  — countdown, callout, footer, nav text
+       Purple (X11)  #a42cd6  — buttons, icons, eyebrows, stats, borders
+       Sky Surge     #42bfdd  — countdown sep, callout accent, slick dot
+       Thistle       #efcefa  — co-pilot gradient, footer logo, labels
+    ============================================================ */
+    :root {
+      --snow:    #fffbfa;   /* page background */
+      --deep:    #13293d;   /* countdown, callout, footer, nav text */
+      --purple:  #a42cd6;   /* primary accent — buttons, icons, eyebrows */
+      --sky:     #42bfdd;   /* secondary accent — separators, highlights */
+      --thistle: #efcefa;   /* soft accent — gradients, labels */
+
+      --purple-soft:   rgba(164,44,214,0.10);
+      --purple-border: rgba(164,44,214,0.22);
+
+      --bg:         var(--snow);
+      --surface:    #ffffff;
+      --surface-2:  #f8f4ff;   /* faint lavender-tinted panels */
+      --border:     rgba(164,44,214,0.14);
+      --text:       #13293d;   /* deep space for body text */
+      --text-muted: #4a3060;   /* dark purple-grey for secondary text */
+
+      --font: 'Nunito Sans', 'Futura', 'Century Gothic', 'Trebuchet MS', Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+      .cm-reveal { opacity: 1 !important; transform: none !important; }
+    }
+
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    h1,h2,h3,h4,h5,h6 { font-family: var(--font); font-weight: 800; color: var(--deep); letter-spacing: -0.02em; line-height: 1.1; }
+    :focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; border-radius: 4px; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--snow); }
+    ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 3px; }
+
+    /* ── Container ──────────────────────────────────────────── */
+    .cm-container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 1.5rem; }
+    @media (min-width: 768px) { .cm-container { padding-inline: 3rem; } }
+
+    /* ── Reveal animations ──────────────────────────────────── */
+    .cm-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .cm-reveal.visible { opacity: 1; transform: translateY(0); }
+    .cm-reveal-delay-1 { transition-delay: 0.1s; }
+    .cm-reveal-delay-2 { transition-delay: 0.2s; }
+    .cm-reveal-delay-3 { transition-delay: 0.3s; }
+    .cm-reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── Buttons ─────────────────────────────────────────────── */
+    .btn { display: inline-block; font-family: var(--font); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; padding: 0.55rem 1.3rem; border-radius: 4px; border: 2px solid transparent; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s; white-space: nowrap; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: rgba(19,41,61,0.7); color: var(--thistle); border-color: var(--purple); }
+    .btn-primary:hover { background: #8e20bd; border-color: #8e20bd; box-shadow: 0 6px 24px rgba(164,44,214,0.3); color: #fff; }
+    .btn-ghost { background: transparent; color: var(--purple); border-color: rgba(164,44,214,0.3); }
+    .btn-ghost:hover { background: var(--purple-soft); border-color: var(--purple); }
+    .btn-lg { padding: 0.75rem 2rem; font-size: 0.9rem; }
+
+    /* ── Section shared ─────────────────────────────────────── */
+    .cm-section-eyebrow { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.16em; color: var(--purple); margin-bottom: 0.5rem; }
+    .cm-section-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; color: var(--deep); margin-bottom: 0.6rem; letter-spacing: -0.025em; }
+    .cm-section-lead { font-size: 0.95rem; font-weight: 400; color: var(--text-muted); max-width: 600px; line-height: 1.7; margin-bottom: 2.5rem; }
+    .cm-footnote { margin-top: 2rem; font-size: 0.82rem; color: var(--text-muted); font-style: italic; text-align: center; opacity: 0.7; }
+
+    /* ── NAV ────────────────────────────────────────────────── */
+    .cm-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(164,44,214,0.12); }
+    .cm-nav-inner { display: flex; flex-direction: column; padding: 1rem 0; }
+    @media (min-width: 768px) { .cm-nav-inner { flex-direction: row; align-items: center; justify-content: space-between; padding: 0.9rem 0; } }
+    .cm-nav-top { display: flex; justify-content: space-between; align-items: center; }
+    .cm-brand { display: flex; flex-direction: column; text-decoration: none; }
+    .cm-brand-name { font-family: var(--font); font-weight: 900; font-size: 1.05rem; color: var(--deep); letter-spacing: -0.03em; text-transform: uppercase; line-height: 1; }
+    .cm-brand-name span { color: var(--purple); }
+    .cm-brand-sub { font-size: 0.65rem; font-weight: 600; color: var(--deep); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px; }
+    .cm-nav-toggle { display: flex; align-items: center; background: none; border: none; color: var(--purple); cursor: pointer; padding: 0.4rem; opacity: 0.7; transition: opacity 0.2s; }
+    .cm-nav-toggle:hover { opacity: 1; }
+    @media (min-width: 768px) { .cm-nav-toggle { display: none; } }
+    .cm-nav-items { display: none; flex-direction: column; gap: 0; padding-top: 0.75rem; }
+    .cm-nav-items.open { display: flex; }
+    @media (min-width: 768px) { .cm-nav-items { display: flex !important; flex-direction: row; align-items: center; gap: 0; padding-top: 0; } }
+    .cm-nav-link { font-family: var(--font); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--deep); text-decoration: none; padding: 0.6rem 1rem; transition: color 0.2s; }
+    .cm-nav-link:hover { color: var(--purple); }
+    .cm-nav-ctas { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0.75rem 0 0; }
+    @media (min-width: 768px) { .cm-nav-ctas { padding: 0 0 0 1.5rem; border-left: 1px solid rgba(164,44,214,0.14); margin-left: 1rem; } }
+
+    /* ── Sticky CTA ─────────────────────────────────────────── */
+    .cm-sticky-cta { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200; opacity: 0; transform: translateY(12px); transition: opacity 0.3s ease, transform 0.3s ease; pointer-events: none; }
+    .cm-sticky-cta.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+    .cm-sticky-cta .btn { padding: 0.9rem 1.75rem; font-size: 0.9rem; box-shadow: 0 8px 32px rgba(164,44,214,0.28); border-radius: 100px; }
+
+    /* ── HERO ───────────────────────────────────────────────── */
+    .cm-hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      background: linear-gradient(180deg, #13293d 0%, #1a3550 40%, #1e3d5c 70%, #13293d 100%);
+    }
+
+    /* Canary Wharf skyline SVG */
+    .cm-hero-skyline { position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 65%; pointer-events: none; z-index: 1; }
+
+    /* Water reflection */
+    .cm-hero-water { position: absolute; bottom: 0; left: 0; right: 0; height: 18%; background: linear-gradient(180deg, transparent 0%, rgba(19,41,61,0.85) 60%, #13293d 100%); z-index: 2; }
+
+    /* Stars */
+    .cm-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 8%, rgba(239,206,250,0.9) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 15%, rgba(238,241,239,0.6) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 40% 5%, rgba(238,241,239,0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 12%, rgba(238,241,239,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 7%, rgba(238,241,239,0.8) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 82% 18%, rgba(238,241,239,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 92% 9%, rgba(238,241,239,0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 25%, rgba(238,241,239,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 20%, rgba(238,241,239,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 22%, rgba(238,241,239,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 78% 28%, rgba(169,180,194,0.5) 0%, transparent 100%),
+        radial-gradient(2px 2px at 88% 14%, rgba(66,191,221,0.8) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 48% 18%, rgba(238,241,239,0.5) 0%, transparent 100%);
+      pointer-events: none; z-index: 0;
+      animation: star-twinkle 7s ease-in-out infinite alternate;
+    }
+    @keyframes star-twinkle { 0%{opacity:0.65;} 100%{opacity:1;} }
+
+    /* Horizon glow */
+    .cm-hero::after {
+      content: ''; position: absolute; bottom: 15%; left: 0; right: 0; height: 120px;
+      background: radial-gradient(ellipse 80% 100% at 50% 100%, rgba(164,44,214,0.2) 0%, rgba(66,191,221,0.08) 40%, transparent 70%);
+      pointer-events: none; z-index: 1;
+    }
+
+    .cm-hero-content { position: relative; z-index: 5; padding: 5rem 0 6rem; max-width: 700px; }
+
+    .cm-hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(164,44,214,0.18); border: 1px solid rgba(164,44,214,0.38);
+      border-radius: 100px; padding: 0.35rem 0.9rem 0.35rem 0.45rem;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+      color: #fff; margin-bottom: 1.8rem; backdrop-filter: blur(8px);
+    }
+    .cm-badge-inner { background: rgba(19,41,61,0.7); color: var(--thistle); border-radius: 100px; padding: 0.2rem 0.7rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; }
+    .cm-badge-pulse { display: inline-block; width: 7px; height: 7px; background: var(--thistle); border-radius: 50%; margin-left: 0.3rem; animation: blink 2s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1;}50%{opacity:0.15;} }
+
+    .cm-hero-title { font-size: clamp(2.6rem, 6.5vw, 5.5rem); font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1.03; margin-bottom: 1.2rem; text-shadow: 0 2px 40px rgba(0,0,0,0.6); }
+    .cm-hero-title em { font-style: normal; color: var(--thistle); font-weight: 900; }
+    .cm-hero-sub { font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 400; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 520px; line-height: 1.7; }
+    .cm-hero-sub strong { color: var(--thistle); font-weight: 700; }
+
+    .cm-hero-input-row { display: inline-flex; border-radius: 6px; overflow: hidden; margin-bottom: 1rem; box-shadow: 0 4px 24px rgba(0,0,0,0.5); }
+    .cm-hero-input { font-family: var(--font); font-size: 0.9rem; background: rgba(19,41,61,0.6); backdrop-filter: blur(8px); border: 1px solid rgba(239,206,250,0.3); border-right: none; color: #fff; padding: 0.85rem 1.25rem; min-width: min(260px, 60vw); outline: none; transition: border-color 0.2s; }
+    .cm-hero-input::placeholder { color: rgba(239,206,250,0.45); }
+    .cm-hero-input:focus { border-color: var(--thistle); }
+    .cm-hero-btn { font-family: var(--font); font-weight: 800; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; background: rgba(19,41,61,0.7); color: var(--thistle); border: 1px solid var(--purple); padding: 0.85rem 1.5rem; cursor: pointer; white-space: nowrap; transition: background 0.2s; }
+    .cm-hero-btn:hover { background: #8e20bd; }
+    .cm-hero-note { font-size: 0.78rem; color: rgba(239,206,250,0.5); font-weight: 400; }
+    .cm-hero-ctas { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1.5rem; }
+
+    .cm-scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: var(--thistle); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; animation: bounce 2s ease-in-out infinite; z-index: 5; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(6px);} }
+    .cm-scroll-hint svg { opacity: 0.35; }
+    .cm-hero-wave { display: none; }  /* removed — countdown sits flush against hero */
+
+    /* ── COUNTDOWN — sits flush under hero, no gap ──────────── */
+    .cm-countdown { background: var(--deep); border-top: 3px solid var(--purple); border-bottom: 1px solid rgba(66,191,221,0.2); padding: 3.5rem 0; text-align: center; position: relative; overflow: hidden; margin-top: 0; }
+    .cm-countdown::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(164,44,214,0.1) 0%, transparent 70%); pointer-events: none; }
+    .cm-countdown-inner { display: flex; flex-direction: column; align-items: center; gap: 1rem; position: relative; z-index: 1; }
+    .cm-countdown-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(239,206,250,0.6); }
+    .cm-countdown-label strong { color: var(--thistle); }
+    .cm-countdown-display { display: flex; align-items: center; gap: 0.4rem; }
+    .cm-unit { display: flex; flex-direction: column; align-items: center; min-width: 120px; }
+    .cm-unit-val { font-size: clamp(3.5rem, 10vw, 6rem); font-weight: 900; color: #fff; line-height: 1; letter-spacing: -0.04em; text-shadow: 0 0 60px rgba(164,44,214,0.4); }
+    .cm-unit-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(239,206,250,0.45); margin-top: 0.5rem; }
+    .cm-live-msg { font-size: 1.4rem; font-weight: 900; color: var(--sky); letter-spacing: 0.02em; }
+    .cm-countdown-sub { font-size: 0.82rem; color: rgba(239,206,250,0.4); margin-top: 0.25rem; }
+
+    /* ── FEATURES ────────────────────────────────────────────── */
+    .cm-features { background: var(--bg); padding: 5rem 0; border-bottom: 1px solid rgba(164,44,214,0.1); }
+    .cm-features-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+    @media (min-width: 768px) { .cm-features-grid { flex-direction: row; gap: 2rem; } }
+    .cm-feature-card { flex: 1; padding: 2rem; border-radius: 10px; border: 1px solid rgba(164,44,214,0.1); background: rgba(164,44,214,0.02); transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
+    .cm-feature-card:hover { border-color: var(--purple); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(164,44,214,0.12); }
+    .cm-feature-icon { width: 54px; height: 54px; background: var(--purple-soft); border: 1px solid var(--purple-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--purple); margin-bottom: 1.25rem; }
+    .cm-feature-icon svg { width: 24px; height: 24px; }
+    .cm-feature-title { font-size: 1.05rem; font-weight: 800; color: var(--deep); margin-bottom: 0.6rem; letter-spacing: -0.01em; }
+    .cm-feature-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; font-weight: 400; }
+    .cm-read-link { display: inline-block; margin-top: 1.2rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--purple); text-decoration: none; border: 1px solid rgba(161,0,255,0.2); padding: 0.4rem 1rem; border-radius: 4px; transition: background 0.2s, border-color 0.2s; }
+    .cm-read-link:hover { background: var(--purple-soft); border-color: var(--purple); }
+
+    /* ── SESSIONS ────────────────────────────────────────────── */
+    .cm-sessions { padding: 5rem 0; }
+    .cm-sessions--copilot { background: linear-gradient(135deg, var(--thistle) 0%, #e0b4f8 50%, #d4a5f5 100%); border-top: 1px solid rgba(164,44,214,0.12); }
+    .cm-sessions--claude { background: var(--bg); border-top: 1px solid rgba(164,44,214,0.1); }
+    .cm-sessions--copilot .cm-section-title { color: var(--deep); }
+    .cm-sessions--copilot .cm-section-lead { color: var(--text-muted); }
+    .cm-sessions--copilot .cm-section-eyebrow { color: var(--deep); opacity: 0.7; }
+
+    .cm-cards { display: flex; flex-direction: column; gap: 1.25rem; }
+    @media (min-width: 540px) { .cm-cards--two { flex-direction: row; } }
+    @media (min-width: 640px) { .cm-cards--three { flex-direction: row; } }
+
+    .cm-card { flex: 1; background: #ffffff; border: 1px solid rgba(164,44,214,0.12); border-radius: 10px; padding: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .cm-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(164,44,214,0.12); border-color: var(--purple); }
+    .cm-card-eyebrow { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--purple); }
+    .cm-card-title { font-size: 1.05rem; font-weight: 900; color: var(--deep); letter-spacing: -0.01em; }
+    .cm-card-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; flex: 1; }
+    .cm-card-meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.25rem; }
+    .cm-card-tag { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; background: var(--purple-soft); border: 1px solid var(--purple-border); color: var(--purple); border-radius: 100px; padding: 0.2rem 0.65rem; }
+    .cm-card-tag--sky { background: rgba(66,191,221,0.1); border-color: rgba(66,191,221,0.25); color: #1a8fa8; }
+
+    .cm-card-locked { flex: 1; background: rgba(164,44,214,0.03); border: 1px solid rgba(164,44,214,0.08); border-radius: 10px; padding: 1.75rem; position: relative; overflow: hidden; opacity: 0.55; pointer-events: none; user-select: none; }
+    .cm-card-locked::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(-45deg, transparent 0, transparent 8px, rgba(125,152,161,0.03) 8px, rgba(125,152,161,0.03) 9px); pointer-events: none; }
+    .cm-lock-pill { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--purple-soft); border: 1px solid var(--purple-border); border-radius: 100px; padding: 0.28rem 0.7rem; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--purple); margin-bottom: 1rem; }
+    .cm-card-locked .cm-card-tag-plain { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); opacity: 0.5; margin-bottom: 0.4rem; }
+    .cm-card-locked .cm-card-title-grey { font-size: 1.1rem; font-weight: 800; color: rgba(28,35,33,0.25); margin-bottom: 0.5rem; }
+    .cm-card-locked .cm-card-desc-grey { font-size: 0.83rem; color: var(--text-muted); opacity: 0.4; line-height: 1.6; }
+
+    /* ── HOW TO SUBMIT ───────────────────────────────────────── */
+    .cm-how-to { background: var(--bg); padding: 5rem 0; border-top: 1px solid rgba(164,44,214,0.1); }
+    .cm-steps { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+    @media (min-width: 640px) { .cm-steps { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .cm-steps { grid-template-columns: repeat(4, 1fr); } }
+    .cm-step { position: relative; background: #ffffff; border: 1px solid rgba(94,101,114,0.13); border-radius: 10px; padding: 1.75rem 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; transition: border-color 0.2s, transform 0.2s; }
+    .cm-step:hover { border-color: var(--purple); transform: translateY(-3px); }
+    .cm-step-number { width: 40px; height: 40px; border-radius: 50%; background: rgba(19,41,61,0.7); color: var(--thistle); font-size: 1rem; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .cm-step-title { font-size: 0.95rem; font-weight: 800; color: var(--deep); }
+    .cm-step-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; }
+    @media (min-width: 900px) {
+      .cm-step:not(:last-child)::after { content: '→'; position: absolute; right: -1.1rem; top: 1.75rem; color: var(--purple); font-size: 1rem; font-weight: 900; z-index: 1; }
+    }
+
+    /* ── THE DEN / COMPETITION ───────────────────────────────── */
+    .cm-competition { background: var(--surface-2); padding: 5rem 0; border-top: 1px solid rgba(164,44,214,0.1); }
+    .cm-competition-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+    @media (min-width: 900px) { .cm-competition-grid { grid-template-columns: 1fr 1.2fr 1fr; } }
+
+    .cm-gap-panel { background: #ffffff; border: 1px solid rgba(164,44,214,0.12); border-radius: 12px; padding: 1.75rem; }
+    .cm-gap-panel h3 { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; color: var(--purple); margin-bottom: 0.75rem; }
+    .cm-gap-panel p { font-size: 0.9rem; color: var(--text-muted); font-weight: 400; line-height: 1.7; margin-bottom: 1.25rem; }
+    .cm-gap-eyebrow { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--purple); margin-bottom: 0.6rem; }
+    .cm-skill-levels { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+    .cm-skill-level { border-radius: 6px; padding: 0.65rem 0.9rem; font-size: 0.82rem; line-height: 1.4; }
+    .cm-skill-level strong { display: block; font-weight: 800; font-size: 0.78rem; margin-bottom: 0.15rem; }
+    .cm-skill-level--1 { background: rgba(164,44,214,0.05); border: 1px solid rgba(164,44,214,0.12); color: var(--text-muted); }
+    .cm-skill-level--2 { background: rgba(125,152,161,0.12); border: 1px solid rgba(125,152,161,0.22); color: #fff; }
+    .cm-skill-level--3 { background: var(--purple); border: 1px solid var(--purple); color: #fff; }
+    .cm-skill-level--3 strong { color: var(--thistle); }
+    .cm-gap-goal { font-size: 0.8rem; color: var(--text-muted); font-style: italic; margin-top: 0.75rem; }
+
+    .cm-den-panel { background: var(--deep); border: 1px solid rgba(164,44,214,0.25); border-radius: 12px; padding: 1.75rem; color: #fff; position: relative; overflow: hidden; }
+    .cm-den-panel::before { content: ''; position: absolute; top: -40px; right: -40px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(164,44,214,0.2) 0%, transparent 70%); pointer-events: none; }
+    .cm-den-panel h3 { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; color: var(--sky); margin-bottom: 0.5rem; }
+    .cm-den-panel h2 { font-size: 1.6rem; font-weight: 900; color: var(--thistle); letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .cm-den-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.25rem; }
+    .cm-den-list li { font-size: 0.88rem; color: rgba(239,206,250,0.88); line-height: 1.55; padding-left: 1.1rem; position: relative; }
+    .cm-den-list li::before { content: '•'; position: absolute; left: 0; color: var(--sky); font-weight: 900; }
+    .cm-den-categories { font-size: 0.8rem; color: rgba(239,206,250,0.5); line-height: 1.6; }
+    .cm-den-categories strong { color: var(--thistle); font-weight: 700; }
+
+    .cm-workshops-panel { background: #ffffff; border: 1px solid rgba(164,44,214,0.12); border-radius: 12px; padding: 1.75rem; }
+    .cm-workshops-panel h3 { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; color: var(--purple); margin-bottom: 0.75rem; }
+    .cm-workshops-panel > p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.25rem; }
+    .cm-workshops-panel > p strong { color: var(--deep); font-weight: 700; }
+    .cm-workshop-eyebrow { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--purple); margin-bottom: 0.75rem; }
+    .cm-workshop-steps { display: flex; flex-direction: column; gap: 0.75rem; }
+    .cm-workshop-step { background: #ffffff; border: 1px solid rgba(94,101,114,0.12); border-radius: 8px; padding: 0.9rem 1rem; }
+    .cm-workshop-step h4 { font-size: 0.82rem; font-weight: 800; color: var(--purple); letter-spacing: -0.01em; margin-bottom: 0.35rem; }
+    .cm-workshop-step ul { list-style: none; display: flex; flex-direction: column; gap: 0.2rem; }
+    .cm-workshop-step ul li { font-size: 0.78rem; color: var(--text-muted); padding-left: 0.9rem; position: relative; }
+    .cm-workshop-step ul li::before { content: '•'; position: absolute; left: 0; color: rgba(125,152,161,0.4); }
+
+    /* ── JUDGING ─────────────────────────────────────────────── */
+    .cm-judging { background: var(--deep); padding: 5rem 0; border-top: 1px solid rgba(164,44,214,0.2); }
+    .cm-judging .cm-section-eyebrow { color: var(--thistle); }
+    .cm-judging .cm-section-title { color: #fff; }
+    .cm-judging .cm-section-lead { color: var(--thistle); opacity: 0.85; }
+    .cm-criteria-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2.5rem; }
+    @media (min-width: 640px) { .cm-criteria-grid { grid-template-columns: repeat(4, 1fr); } }
+    .cm-criterion { background: rgba(125,152,161,0.06); border: 1px solid rgba(94,101,114,0.13); border-radius: 10px; padding: 1.5rem 1.25rem; text-align: center; transition: background 0.2s, border-color 0.2s; }
+    .cm-criterion:hover { background: var(--purple-soft); border-color: var(--purple); }
+    .cm-criterion-num { font-size: 2rem; font-weight: 900; color: var(--purple); line-height: 1; margin-bottom: 0.5rem; }
+    .cm-criterion-label { font-size: 0.88rem; font-weight: 800; color: #fff; margin-bottom: 0.4rem; }
+    .cm-criterion-desc { font-size: 0.78rem; color: var(--thistle); opacity: 0.75; line-height: 1.5; opacity: 0.7; }
+
+    .cm-prize-banner { margin-top: 3rem; background: rgba(125,152,161,0.08); border: 1px solid rgba(94,101,114,0.15); border-radius: 12px; padding: 1.75rem 2rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .cm-prize-text h3 { font-size: 1.1rem; font-weight: 900; color: #fff; margin-bottom: 0.35rem; }
+    .cm-prize-text p { font-size: 0.88rem; color: var(--thistle); line-height: 1.6; opacity: 0.75; }
+    .cm-prize-items { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .cm-prize-item { background: rgba(239,206,250,0.1); border: 1px solid rgba(239,206,250,0.25); border-radius: 8px; padding: 0.6rem 1rem; font-size: 0.82rem; font-weight: 700; color: var(--thistle); }
+
+    /* ── TIMELINE ────────────────────────────────────────────── */
+    .cm-timeline-section { background: var(--bg); border-top: 1px solid rgba(164,44,214,0.1); padding: 5rem 0; }
+    .cm-timeline-legend { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 2rem; }
+    .cm-legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); }
+    .cm-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .cm-legend-dot--copilot { background: var(--sky); }
+    .cm-legend-dot--claude { background: var(--purple); }
+    .cm-legend-star { font-size: 1rem; }
+    .cm-timeline-tracks { display: flex; flex-direction: column; gap: 1.5rem; }
+    .cm-track { background: #ffffff; border: 1px solid rgba(164,44,214,0.1); border-radius: 10px; padding: 1.5rem; }
+    .cm-track-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+    .cm-track-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+    .cm-track-dot--copilot { background: var(--sky); }
+    .cm-track-dot--claude { background: var(--purple); }
+    .cm-track-name { font-size: 0.85rem; font-weight: 800; color: var(--deep); text-transform: uppercase; letter-spacing: 0.06em; }
+    .cm-track-milestones { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .cm-milestone { background: rgba(125,152,161,0.06); border: 1px solid rgba(94,101,114,0.13); border-radius: 8px; padding: 0.65rem 1rem; min-width: 140px; }
+    .cm-milestone-date { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--purple); margin-bottom: 0.2rem; }
+    .cm-milestone-label { font-size: 0.82rem; font-weight: 600; color: var(--deep); }
+    .cm-milestone--finale { background: var(--purple); border-color: var(--purple); }
+    .cm-milestone--finale .cm-milestone-date { color: var(--thistle); }
+    .cm-milestone--finale .cm-milestone-label { color: var(--thistle); }
+
+    /* ── ROI ─────────────────────────────────────────────────── */
+    .cm-roi-section { background: var(--surface); border-top: 1px solid rgba(125,152,161,0.12); padding: 5rem 0; }
+    .cm-roi-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-top: 2rem; }
+    @media (min-width: 540px) { .cm-roi-grid { grid-template-columns: repeat(3, 1fr); } }
+    .cm-roi-card { border: 2px dashed rgba(161,0,255,0.15); border-radius: 10px; padding: 1.75rem; transition: border-color 0.2s, background 0.2s; }
+    .cm-roi-card:hover { border-color: var(--purple); background: var(--purple-soft); }
+    .cm-roi-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .cm-roi-card h4 { font-size: 1rem; font-weight: 900; color: var(--deep); letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+    .cm-roi-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* ── CALLOUT ─────────────────────────────────────────────── */
+    .cm-callout { background: var(--deep); padding: 4.5rem 0; position: relative; overflow: hidden; }
+    .cm-callout::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 100% at 80% 50%, rgba(164,44,214,0.25) 0%, transparent 60%); pointer-events: none; }
+    .cm-callout-text { font-size: clamp(1.8rem, 4vw, 3.2rem); font-weight: 900; color: #fff; max-width: 840px; line-height: 1.18; letter-spacing: -0.025em; position: relative; z-index: 1; }
+    .cm-callout-text em { font-style: normal; color: var(--purple); }
+    .cm-callout-ul { border-bottom: 4px solid var(--purple); padding-bottom: 2px; }
+
+    /* ── ABOUT / TEAM ────────────────────────────────────────── */
+    .cm-about { background: var(--bg); padding: 5rem 0; border-top: 1px solid rgba(164,44,214,0.1); }
+    .cm-about-intro { max-width: 680px; margin-bottom: 3rem; }
+    .cm-about-lead { font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-top: 0.9rem; }
+    .cm-about-lead strong { color: var(--purple); font-weight: 700; }
+    .cm-team-grid { display: grid; grid-template-columns: 1fr; gap: 1.75rem; margin-bottom: 3rem; }
+    @media (min-width: 700px) { .cm-team-grid { grid-template-columns: repeat(2, 1fr); } }
+    .cm-team-card { background: #ffffff; border: 1px solid rgba(164,44,214,0.12); border-radius: 14px; padding: 2rem; display: flex; flex-direction: column; gap: 1.25rem; transition: border-color 0.2s, box-shadow 0.2s; }
+    .cm-team-card:hover { border-color: var(--purple); box-shadow: 0 8px 32px rgba(164,44,214,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+    .cm-team-photo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(164,44,214,0.3); }
+    .cm-team-name-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .cm-team-name { font-size: 1.2rem; font-weight: 900; color: var(--deep); letter-spacing: -0.02em; }
+    .cm-linkedin-btn { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--purple); text-decoration: none; border: 1px solid rgba(125,152,161,0.25); border-radius: 100px; padding: 0.3rem 0.8rem; transition: background 0.2s, border-color 0.2s; }
+    .cm-linkedin-btn:hover { background: var(--purple-soft); border-color: var(--purple); }
+    .cm-team-role { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--purple); }
+    .cm-team-bio { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; }
+    .cm-team-bio strong { color: var(--purple); font-weight: 700; }
+    .cm-team-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.25rem; }
+    .cm-tag { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--purple); background: var(--purple-soft); border: 1px solid var(--purple-border); border-radius: 100px; padding: 0.2rem 0.65rem; }
+    .cm-about-stats-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1rem; }
+    @media (min-width: 480px) { .cm-about-stats-row { grid-template-columns: repeat(4, 1fr); } }
+    .cm-stat { background: var(--purple-soft); border: 1px solid var(--purple-border); border-radius: 10px; padding: 1.5rem 1rem; text-align: center; transition: border-color 0.2s, background 0.2s; }
+    .cm-stat:hover { border-color: var(--purple); background: var(--purple-soft); }
+    .cm-stat-val { display: block; font-size: 2.4rem; font-weight: 900; color: var(--purple); line-height: 1; letter-spacing: -0.03em; }
+    .cm-stat-label { display: block; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-top: 0.4rem; opacity: 0.6; }
+
+    /* ── FAQ ─────────────────────────────────────────────────── */
+    .cm-faq { background: var(--surface); padding: 5rem 0; border-top: 1px solid rgba(125,152,161,0.12); }
+    .cm-faq-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2.5rem; max-width: 800px; }
+    .cm-faq-item { background: #ffffff; border: 1px solid rgba(164,44,214,0.1); border-radius: 10px; overflow: hidden; }
+    .cm-faq-q { width: 100%; background: none; border: none; cursor: pointer; padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-family: var(--font); font-size: 0.95rem; font-weight: 800; color: var(--deep); text-align: left; transition: background 0.2s; }
+    .cm-faq-q:hover { background: #ffffff; }
+    .cm-faq-q[aria-expanded="true"] { color: var(--purple); }
+    .cm-faq-icon { width: 22px; height: 22px; border-radius: 50%; background: var(--purple-soft); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.25s, background 0.2s; }
+    .cm-faq-icon svg { stroke: var(--purple); }
+    .cm-faq-q[aria-expanded="true"] .cm-faq-icon { transform: rotate(45deg); background: var(--purple); }
+    .cm-faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .cm-faq-a.open { max-height: 400px; }
+    .cm-faq-a p { padding: 0 1.5rem 1.25rem; font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; }
+    .cm-faq-a strong { color: var(--deep); font-weight: 700; }
+
+    /* ── TESTIMONIALS ────────────────────────────────────────── */
+    .cm-testimonials { background: var(--bg); padding: 5rem 0; border-top: 1px solid rgba(125,152,161,0.12); }
+    .cm-testi-card { background: #ffffff; border: 1px solid rgba(164,44,214,0.1); border-radius: 10px; padding: 2rem; margin: 0 0.75rem; position: relative; }
+    .cm-testi-quote { font-size: 4rem; line-height: 1; color: var(--purple); opacity: 0.3; position: absolute; top: 1rem; left: 1.5rem; font-family: Georgia, serif; }
+    .cm-testi-text { font-size: 0.92rem; color: var(--text-muted); font-style: italic; line-height: 1.7; font-style: italic; line-height: 1.7; margin-bottom: 1.25rem; }
+    .cm-testi-author { display: flex; align-items: center; gap: 0.75rem; }
+    .cm-testi-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--purple-soft); display: flex; align-items: center; justify-content: center; color: var(--purple); flex-shrink: 0; border: 2px solid rgba(125,152,161,0.2); }
+    .cm-testi-name { font-size: 0.88rem; font-weight: 700; color: var(--deep); }
+    .cm-testi-role { font-size: 0.75rem; color: var(--text-muted); }
+    .slick-dots li button:before { color: var(--purple) !important; font-size: 8px !important; }
+    .slick-dots li.slick-active button:before { color: var(--purple) !important; }
+
+    /* ── LEARN MORE ──────────────────────────────────────────── */
+    .cm-learn { background: var(--bg); padding: 5rem 0; border-top: 1px solid rgba(125,152,161,0.12); }
+    .cm-learn-cards { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
+    @media (min-width: 640px) { .cm-learn-cards { flex-direction: row; } }
+    .cm-learn-card { flex: 1; background: #ffffff; border: 1px solid rgba(164,44,214,0.12); border-radius: 10px; padding: 2rem; display: flex; flex-direction: column; gap: 1rem; transition: border-color 0.2s, transform 0.2s; }
+    .cm-learn-card:hover { border-color: var(--purple); box-shadow: 0 8px 32px rgba(164,44,214,0.1); transform: translateY(-3px); }
+    .cm-learn-icon { width: 52px; height: 52px; background: var(--purple-soft); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--purple); }
+    .cm-learn-card h3 { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em; color: var(--deep); }
+    .cm-learn-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; flex: 1; }
+
+    /* ── FOOTER ──────────────────────────────────────────────── */
+    .cm-footer { background: var(--deep); border-top: 1px solid rgba(164,44,214,0.2); padding: 3rem 0 1.5rem; }
+    .cm-footer-grid { display: flex; flex-wrap: wrap; gap: 2.5rem; }
+    .cm-footer-brand-col { flex: 1.2; min-width: 200px; }
+    .cm-footer-links-col { flex: 2; min-width: 300px; }
+    .cm-footer-cta-col { flex: 1; min-width: 200px; }
+    .cm-footer-logo { font-size: 1.3rem; font-weight: 900; color: var(--thistle); letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 1rem; }
+    .cm-footer-logo span { color: var(--sky); }
+    .cm-footer-desc { font-size: 0.82rem; color: rgba(239,206,250,0.5); line-height: 1.75; }
+    .cm-footer-links-grid { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .cm-footer-col h5 { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--thistle); margin-bottom: 1rem; }
+    .cm-footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .cm-footer-col a { font-size: 0.82rem; color: rgba(239,206,250,0.5); text-decoration: none; transition: color 0.2s; }
+    .cm-footer-col a:hover { color: var(--thistle); }
+    .cm-footer-input-row { display: flex; border-radius: 4px; overflow: hidden; }
+    .cm-footer-input { font-family: var(--font); font-size: 0.82rem; flex: 1; background: rgba(164,44,214,0.1); border: 1px solid rgba(164,44,214,0.2); border-right: none; color: #fff; padding: 0.6rem 0.9rem; outline: none; }
+    .cm-footer-input::placeholder { color: rgba(239,206,250,0.35); }
+    .cm-footer-submit { font-family: var(--font); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(19,41,61,0.7); color: var(--thistle); border: none; padding: 0.6rem 1rem; cursor: pointer; transition: background 0.2s; }
+    .cm-footer-submit:hover { background: var(--sky); color: var(--deep); }
+    .cm-footer-socials { display: flex; gap: 0.75rem; margin-top: 1.25rem; }
+    .cm-social { width: 36px; height: 36px; background: rgba(164,44,214,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--thistle); text-decoration: none; transition: background 0.2s, transform 0.18s; }
+    .cm-social:hover { background: var(--purple); transform: scale(1.1); }
+    .cm-social svg { width: 16px; height: 16px; }
+    .cm-footer-bottom { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(164,44,214,0.15); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; }
+    .cm-footer-copy, .cm-footer-ai { font-size: 0.72rem; color: rgba(239,206,250,0.25); }
+    .cm-footer-ai { font-style: italic; }
+  </style>
+
+</head>
+<body>
+
+<!-- ── STICKY SUBMIT CTA ─────────────────────────────────── -->
+<div class="cm-sticky-cta" id="sticky-cta" aria-label="Quick submit">
+  <a href="#" class="btn btn-primary cta-link" data-url-key="SUBMISSION_FORM_URL">Submit Your Agent ↑</a>
+</div>
+
+<!-- ── NAV ───────────────────────────────────────────────── -->
+<nav class="cm-nav" role="navigation" aria-label="Primary navigation">
+  <div class="cm-container">
+    <div class="cm-nav-inner">
+      <div class="cm-nav-top">
+        <a href="#" class="cm-brand" aria-label="CM.AI Home">
+          <span class="cm-brand-name">Capital Markets <span>Agentic Den</span></span>
+          <span class="cm-brand-sub">brought to you by CM.AI</span>
+        </a>
+        <button class="cm-nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-items" aria-label="Toggle navigation">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="cm-nav-items" id="nav-items">
+        <a href="#home"       class="cm-nav-link">Home</a>
+        <a href="#sessions"   class="cm-nav-link">Sessions</a>
+        <a href="#the-den"    class="cm-nav-link">The Den</a>
+        <a href="#timeline"   class="cm-nav-link">Timeline</a>
+        <a href="#about"      class="cm-nav-link">About Us</a>
+        <a href="#faq"        class="cm-nav-link">FAQ</a>
+        <div class="cm-nav-ctas">
+          <a href="#" class="btn btn-ghost cta-link" data-url-key="SUBMISSION_FORM_URL">Submission Form</a>
+          <a href="#" class="btn btn-primary cta-link" data-url-key="TRACKER_URL">Agent Tracker →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────────── -->
+<section id="home" class="cm-hero" aria-label="Hero">
+  <div class="cm-container">
+    <div class="cm-hero-content">
+      <div class="cm-hero-badge cm-reveal">
+        <span class="cm-badge-inner">Live Event</span>
+        22 June 2026 &middot; London
+        <span class="cm-badge-pulse" aria-hidden="true"></span>
+      </div>
+      <h1 class="cm-hero-title cm-reveal cm-reveal-delay-1">
+        Capital Markets<br><em>Agentic Den</em>
+      </h1>
+      <p class="cm-hero-sub cm-reveal cm-reveal-delay-2">
+        brought to you by <strong>CM.AI</strong> &mdash; where agentic AI meets capital markets
+      </p>
+      <div class="cm-reveal cm-reveal-delay-3">
+        <div class="cm-hero-input-row">
+          <input class="cm-hero-input" type="email" placeholder="Enter your email to register interest" aria-label="Email address" id="hero-email">
+          <button class="cm-hero-btn" id="hero-register-btn">Register</button>
+        </div>
+        <p class="cm-hero-note" id="hero-note">No commitment required</p>
+      </div>
+      <div class="cm-hero-ctas cm-reveal cm-reveal-delay-4">
+        <a href="#" class="btn btn-primary btn-lg cta-link" data-url-key="SUBMISSION_FORM_URL">Submit Your Agent</a>
+        <a href="#" class="btn btn-ghost btn-lg cta-link" data-url-key="TRACKER_URL">Agent Tracker →</a>
+      </div>
+    </div>
+  </div>
+  <div class="cm-scroll-hint" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    Scroll
+  </div>
+
+  <!-- Canary Wharf Skyline SVG -->
+  <svg class="cm-hero-skyline" viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="bldg-grad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#2a3d6b" stop-opacity="0.8"/>
+        <stop offset="100%" stop-color="#13293d" stop-opacity="1"/>
+      </linearGradient>
+      <linearGradient id="bldg-grad-2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1e3558" stop-opacity="0.85"/>
+        <stop offset="100%" stop-color="#13293d" stop-opacity="1"/>
+      </linearGradient>
+      <linearGradient id="bldg-grad-3" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#13293d" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#0d1f2d" stop-opacity="1"/>
+      </linearGradient>
+      <linearGradient id="sky-glow" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="rgba(125,152,161,0)" stop-opacity="0"/>
+        <stop offset="100%" stop-color="rgba(164,44,214,0.12)" stop-opacity="1"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Background layer - distant city -->
+    <rect x="0" y="200" width="80" height="220" fill="url(#bldg-grad-3)" opacity="0.5"/>
+    <rect x="85" y="220" width="60" height="200" fill="url(#bldg-grad-3)" opacity="0.4"/>
+    <rect x="150" y="185" width="45" height="235" fill="url(#bldg-grad-3)" opacity="0.5"/>
+    <rect x="200" y="210" width="70" height="210" fill="url(#bldg-grad-3)" opacity="0.4"/>
+    <rect x="1280" y="195" width="80" height="225" fill="url(#bldg-grad-3)" opacity="0.5"/>
+    <rect x="1365" y="215" width="75" height="205" fill="url(#bldg-grad-3)" opacity="0.4"/>
+
+    <!-- One Canada Square -->
+    <rect x="680" y="20" width="80" height="380" fill="url(#bldg-grad)"/>
+    <polygon points="680,20 760,20 720,0" fill="#a42cd6" opacity="0.6"/>
+    <!-- Windows - warm platinum glow -->
+    <rect x="690" y="30" width="12" height="8" fill="rgba(239,206,250,0.7)" rx="1"/>
+    <rect x="710" y="30" width="12" height="8" fill="rgba(66,191,221,0.5)" rx="1"/>
+    <rect x="730" y="30" width="12" height="8" fill="rgba(239,206,250,0.6)" rx="1"/>
+    <rect x="690" y="50" width="12" height="8" fill="rgba(164,44,214,0.4)" rx="1"/>
+    <rect x="710" y="50" width="12" height="8" fill="rgba(239,206,250,0.55)" rx="1"/>
+    <rect x="730" y="50" width="12" height="8" fill="rgba(66,191,221,0.4)" rx="1"/>
+    <rect x="690" y="70" width="12" height="8" fill="rgba(239,206,250,0.45)" rx="1"/>
+    <rect x="710" y="70" width="12" height="8" fill="rgba(239,206,250,0.65)" rx="1"/>
+    <rect x="730" y="70" width="12" height="8" fill="rgba(66,191,221,0.45)" rx="1"/>
+    <rect x="690" y="90" width="12" height="8" fill="rgba(239,206,250,0.6)" rx="1"/>
+    <rect x="710" y="90" width="12" height="8" fill="rgba(66,191,221,0.4)" rx="1"/>
+    <rect x="730" y="90" width="12" height="8" fill="rgba(239,206,250,0.7)" rx="1"/>
+    <!-- Blinking light on top -->
+    <circle cx="720" cy="4" r="3" fill="#42bfdd" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.1;0.9" dur="2s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- HSBC / 8 Canada Square -->
+    <rect x="560" y="80" width="75" height="340" fill="url(#bldg-grad-2)"/>
+    <rect x="560" y="80" width="75" height="8" fill="#a42cd6" opacity="0.6"/>
+    <rect x="570" y="95" width="10" height="7" fill="rgba(239,206,250,0.45)" rx="1"/>
+    <rect x="588" y="95" width="10" height="7" fill="rgba(164,44,214,0.4)" rx="1"/>
+    <rect x="606" y="95" width="10" height="7" fill="rgba(66,191,221,0.5)" rx="1"/>
+    <rect x="570" y="112" width="10" height="7" fill="rgba(66,191,221,0.4)" rx="1"/>
+    <rect x="588" y="112" width="10" height="7" fill="rgba(239,206,250,0.7)" rx="1"/>
+    <rect x="606" y="112" width="10" height="7" fill="rgba(125,152,161,0.35)" rx="1"/>
+    <rect x="570" y="129" width="10" height="7" fill="rgba(239,206,250,0.55)" rx="1"/>
+    <rect x="588" y="129" width="10" height="7" fill="rgba(66,191,221,0.4)" rx="1"/>
+    <rect x="606" y="129" width="10" height="7" fill="rgba(239,206,250,0.6)" rx="1"/>
+
+    <!-- Citigroup Centre / 25 Canada Square -->
+    <rect x="790" y="100" width="70" height="320" fill="url(#bldg-grad-2)"/>
+    <ellipse cx="825" cy="100" rx="35" ry="12" fill="#5e6572" opacity="0.8"/>
+    <circle cx="825" cy="92" r="3" fill="#efcefa" opacity="0.8">
+      <animate attributeName="opacity" values="0.7;0.1;0.7" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <rect x="800" y="115" width="10" height="7" fill="rgba(239,206,250,0.45)" rx="1"/>
+    <rect x="818" y="115" width="10" height="7" fill="rgba(164,44,214,0.4)" rx="1"/>
+    <rect x="836" y="115" width="10" height="7" fill="rgba(66,191,221,0.5)" rx="1"/>
+    <rect x="800" y="132" width="10" height="7" fill="rgba(66,191,221,0.45)" rx="1"/>
+    <rect x="818" y="132" width="10" height="7" fill="rgba(239,206,250,0.45)" rx="1"/>
+    <rect x="836" y="132" width="10" height="7" fill="rgba(164,44,214,0.4)" rx="1"/>
+
+    <!-- KPMG / stepped towers -->
+    <rect x="460" y="140" width="65" height="280" fill="url(#bldg-grad-2)"/>
+    <rect x="472" y="120" width="40" height="25" fill="url(#bldg-grad)" opacity="0.8"/>
+    <rect x="870" y="150" width="60" height="270" fill="url(#bldg-grad-2)"/>
+    <rect x="880" y="130" width="40" height="25" fill="url(#bldg-grad)" opacity="0.8"/>
+
+    <!-- Shorter foreground buildings -->
+    <rect x="370" y="200" width="55" height="220" fill="url(#bldg-grad-3)" opacity="0.8"/>
+    <rect x="390" y="185" width="20" height="18" fill="url(#bldg-grad)" opacity="0.7"/>
+    <rect x="940" y="190" width="55" height="230" fill="url(#bldg-grad-3)" opacity="0.8"/>
+    <rect x="955" y="175" width="20" height="18" fill="url(#bldg-grad)" opacity="0.7"/>
+
+    <!-- Far flanks -->
+    <rect x="290" y="230" width="45" height="190" fill="url(#bldg-grad-3)" opacity="0.6"/>
+    <rect x="1010" y="220" width="50" height="200" fill="url(#bldg-grad-3)" opacity="0.6"/>
+    <rect x="1065" y="240" width="40" height="180" fill="url(#bldg-grad-3)" opacity="0.5"/>
+    <rect x="1110" y="200" width="60" height="220" fill="url(#bldg-grad-3)" opacity="0.6"/>
+    <rect x="1175" y="230" width="45" height="190" fill="url(#bldg-grad-3)" opacity="0.5"/>
+    <rect x="240" y="250" width="40" height="170" fill="url(#bldg-grad-3)" opacity="0.5"/>
+
+    <!-- DLR elevated track -->
+    <rect x="200" y="350" width="1040" height="6" fill="rgba(164,44,214,0.2)"/>
+    <rect x="200" y="350" width="1040" height="1" fill="rgba(66,191,221,0.15)"/>
+
+    <!-- Water surface -->
+    <rect x="0" y="380" width="1440" height="40" fill="url(#sky-glow)"/>
+
+    <!-- Scattered window glows -->
+    <rect x="575" y="150" width="8" height="6" fill="rgba(238,241,239,0.3)" rx="1"/>
+    <rect x="593" y="150" width="8" height="6" fill="rgba(66,191,221,0.45)" rx="1"/>
+    <rect x="611" y="150" width="8" height="6" fill="rgba(238,241,239,0.25)" rx="1"/>
+    <rect x="470" y="155" width="8" height="6" fill="rgba(66,191,221,0.5)" rx="1"/>
+    <rect x="486" y="155" width="8" height="6" fill="rgba(66,191,221,0.4)" rx="1"/>
+    <rect x="875" y="160" width="8" height="6" fill="rgba(239,206,250,0.45)" rx="1"/>
+    <rect x="891" y="160" width="8" height="6" fill="rgba(125,152,161,0.35)" rx="1"/>
+  </svg>
+
+  <!-- Water reflection -->
+  <div class="cm-hero-water" aria-hidden="true"></div>
+
+  <div class="cm-hero-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,35 C360,70 1080,0 1440,35 L1440,70 L0,70 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ── COUNTDOWN ─────────────────────────────────────────── -->
+<section class="cm-countdown" aria-label="Event countdown">
+  <div class="cm-container">
+    <div class="cm-countdown-inner">
+      <p class="cm-countdown-label">Counting down to <strong>22 June 2026</strong></p>
+      <div class="cm-countdown-display" id="countdown" aria-live="polite" aria-atomic="true">
+        <div class="cm-unit">
+          <span class="cm-unit-val" id="cd-days">--</span>
+          <span class="cm-unit-label">Days to go</span>
+        </div>
+      </div>
+      <p class="cm-countdown-sub">Submit before the deadline &mdash; don't leave it to the last minute.</p>
+      <p class="cm-live-msg" id="countdown-live" hidden aria-live="assertive">
+        🎉 The event is live! Welcome to the Capital Markets Agentic Den.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ───────────────────────────────────────────── -->
+<section class="cm-features" aria-label="Key features">
+  <div class="cm-container">
+    <div class="cm-features-grid">
+      <div class="cm-feature-card cm-reveal">
+        <div class="cm-feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h4 class="cm-feature-title">Live Agent Demos</h4>
+        <p class="cm-feature-desc">Watch agentic AI systems execute real capital markets tasks — live, unscripted, and evaluated by domain experts.</p>
+        <a href="#sessions" class="cm-read-link">View Sessions</a>
+      </div>
+      <div class="cm-feature-card cm-reveal cm-reveal-delay-1">
+        <div class="cm-feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h4 class="cm-feature-title">Multi-Track Sessions</h4>
+        <p class="cm-feature-desc">Co-Pilot and Claude tracks — curated workshops alternating lunchtime and after-work so there's always a slot.</p>
+        <a href="#sessions" class="cm-read-link">Explore Tracks</a>
+      </div>
+      <div class="cm-feature-card cm-reveal cm-reveal-delay-2">
+        <div class="cm-feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h4 class="cm-feature-title">Submit &amp; Compete</h4>
+        <p class="cm-feature-desc">Enter across three categories — revenue generation, pace &amp; productivity, or client delivery. Top 10 present to a senior panel.</p>
+        <a href="#" class="cm-read-link cta-link" data-url-key="SUBMISSION_FORM_URL">Submit Now</a>
+      </div>
+      <div class="cm-feature-card cm-reveal cm-reveal-delay-3">
+        <div class="cm-feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h4 class="cm-feature-title">Expert Network</h4>
+        <p class="cm-feature-desc">Connect with quants, technologists, and AI engineers building the next generation of capital markets intelligence.</p>
+        <a href="#about" class="cm-read-link">Meet the Team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SESSIONS: CO-PILOT ─────────────────────────────────── -->
+<section id="sessions" class="cm-sessions cm-sessions--copilot" aria-labelledby="copilot-heading">
+  <div class="cm-container">
+    <p class="cm-section-eyebrow">Track One</p>
+    <h2 class="cm-section-title" id="copilot-heading">Co-Pilot Sessions</h2>
+    <p class="cm-section-lead">Explore how AI co-pilots are transforming front-office workflows across trading, risk, and operations. Submissions open 22 April — deadline 29 April.</p>
+    <div class="cm-cards cm-cards--two" role="list">
+      <article class="cm-card cm-reveal" role="listitem">
+        <p class="cm-card-eyebrow">Session One &middot; Co-Pilot Track</p>
+        <p class="cm-card-title">AI-Assisted Trade Surveillance</p>
+        <p class="cm-card-desc">How agentic co-pilots are augmenting surveillance workflows — flagging anomalies, drafting escalation notes, and reducing analyst fatigue in real time.</p>
+        <div class="cm-card-meta">
+          <span class="cm-card-tag">Compliance</span>
+          <span class="cm-card-tag cm-card-tag--sky">Co-Pilot</span>
+        </div>
+      </article>
+      <article class="cm-card cm-reveal cm-reveal-delay-1" role="listitem">
+        <p class="cm-card-eyebrow">Session Two &middot; Co-Pilot Track</p>
+        <p class="cm-card-title">Agent-Assisted Risk Reporting</p>
+        <p class="cm-card-desc">Automating the daily risk pack — from data pull to narrative summary — so risk teams spend time on decisions, not dashboards.</p>
+        <div class="cm-card-meta">
+          <span class="cm-card-tag">Risk</span>
+          <span class="cm-card-tag cm-card-tag--sky">Co-Pilot</span>
+        </div>
+      </article>
+    </div>
+    <p class="cm-footnote">Full session details confirmed closer to the date. Topics subject to change.</p>
+  </div>
+</section>
+
+<!-- ── SESSIONS: CLAUDE ───────────────────────────────────── -->
+<section class="cm-sessions cm-sessions--claude" aria-labelledby="claude-heading">
+  <div class="cm-container">
+    <p class="cm-section-eyebrow">Track Two</p>
+    <h2 class="cm-section-title" id="claude-heading">Claude Sessions</h2>
+    <p class="cm-section-lead">Deep-dive sessions on deploying Claude in complex, regulated financial environments. Submissions open 13 May — deadline 27 May.</p>
+    <div class="cm-cards cm-cards--three" role="list">
+      <article class="cm-card cm-reveal" role="listitem">
+        <p class="cm-card-eyebrow">Session One &middot; Claude Track</p>
+        <p class="cm-card-title">Governed AI in Regulated Markets</p>
+        <p class="cm-card-desc">Building Claude agents that operate within regulatory constraints — audit trails, explainability, and human-in-the-loop design patterns.</p>
+        <div class="cm-card-meta">
+          <span class="cm-card-tag">Governance</span>
+          <span class="cm-card-tag" style="background:rgba(164,44,214,0.1);border-color:rgba(164,44,214,0.2);color:var(--purple);">Claude</span>
+        </div>
+      </article>
+      <article class="cm-card cm-reveal cm-reveal-delay-1" role="listitem">
+        <p class="cm-card-eyebrow">Session Two &middot; Claude Track</p>
+        <p class="cm-card-title">Client Delivery Agents</p>
+        <p class="cm-card-desc">From pitch book generation to post-trade reporting — real examples of Claude agents cutting delivery time and improving quality for clients.</p>
+        <div class="cm-card-meta">
+          <span class="cm-card-tag">Client Delivery</span>
+          <span class="cm-card-tag" style="background:rgba(164,44,214,0.1);border-color:rgba(164,44,214,0.2);color:var(--purple);">Claude</span>
+        </div>
+      </article>
+      <article class="cm-card-locked cm-reveal cm-reveal-delay-2" role="listitem" aria-label="Session Three — coming soon" aria-disabled="true">
+        <div class="cm-lock-pill" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4" stroke-linecap="round"/></svg>
+          Coming Soon
+        </div>
+        <p class="cm-card-tag-plain">Session Three &middot; Claude Track</p>
+        <p class="cm-card-title-grey">To Be Announced</p>
+        <p class="cm-card-desc-grey">Details for the third Claude session will be confirmed in May. Check back here for updates.</p>
+      </article>
+    </div>
+    <p class="cm-footnote">Please check back on the session date for more information.</p>
+  </div>
+</section>
+
+<!-- ── HOW TO SUBMIT ──────────────────────────────────────── -->
+<section class="cm-how-to" aria-labelledby="how-heading">
+  <div class="cm-container">
+    <p class="cm-section-eyebrow">Getting Involved</p>
+    <h2 class="cm-section-title" id="how-heading">How to Submit</h2>
+    <p class="cm-section-lead">Four steps from idea to the judging panel. You can start building before a session — independent submissions are welcome.</p>
+    <div class="cm-steps">
+      <div class="cm-step cm-reveal">
+        <div class="cm-step-number">1</div>
+        <p class="cm-step-title">Attend a Workshop</p>
+        <p class="cm-step-desc">Join a Co-Pilot or Claude workshop session. Build foundational skills and get inspired by live demos. At least one session is strongly recommended.</p>
+      </div>
+      <div class="cm-step cm-reveal cm-reveal-delay-1">
+        <div class="cm-step-number">2</div>
+        <p class="cm-step-title">Build Your Agent</p>
+        <p class="cm-step-desc">Use the session use-case or your own idea. Support is available throughout. Agents can target revenue generation, pace &amp; productivity, or client delivery.</p>
+      </div>
+      <div class="cm-step cm-reveal cm-reveal-delay-2">
+        <div class="cm-step-number">3</div>
+        <p class="cm-step-title">Submit via the Form</p>
+        <p class="cm-step-desc">Submit your agent using the Sign-Up form before the track deadline. Include a short description, your use-case, and a demo if possible.</p>
+      </div>
+      <div class="cm-step cm-reveal cm-reveal-delay-3">
+        <div class="cm-step-number">4</div>
+        <p class="cm-step-title">Present to the Panel</p>
+        <p class="cm-step-desc">Top 10 submissions are invited to present to a senior judging panel at the Agentic Den finale. Finalists earn recognition points and practice-wide visibility.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE DEN + GAP + WORKSHOPS ─────────────────────────── -->
+<section id="the-den" class="cm-competition" aria-labelledby="competition-heading">
+  <div class="cm-container">
+    <p class="cm-section-eyebrow">How It Works</p>
+    <h2 class="cm-section-title" id="competition-heading">The Agentic Den</h2>
+    <p class="cm-section-lead">A practice-wide showcase and competition designed to close the gap between knowing about agentic AI and using it every day.</p>
+    <div class="cm-competition-grid">
+      <div class="cm-gap-panel cm-reveal">
+        <h3>The Gap</h3>
+        <p>Capital Markets has a knowledge and application gap — our people aren't using agentic AI day-to-day, and it's showing up in how we serve clients.</p>
+        <p class="cm-gap-eyebrow">Skill Levels Today</p>
+        <div class="cm-skill-levels">
+          <div class="cm-skill-level cm-skill-level--1"><strong>Group 1 · Aware</strong>Knows the terminology. Never built an agent.</div>
+          <div class="cm-skill-level cm-skill-level--2"><strong>Group 2 · Capable</strong>Has built one — but not using agents day to day.</div>
+          <div class="cm-skill-level cm-skill-level--3"><strong>Group 3 · Embedded</strong>Regularly builds, ideates, and shares with the team.</div>
+        </div>
+        <p class="cm-gap-goal">Goal: bring everyone to Group 3.</p>
+      </div>
+      <div class="cm-den-panel cm-reveal cm-reveal-delay-1">
+        <h3>The Competition</h3>
+        <h2>Agent Den</h2>
+        <ul class="cm-den-list">
+          <li>Practice-wide showcase — agents built in workshops or independently</li>
+          <li>Submit via the Sign-Up form. Top 10 present to a senior judging panel.</li>
+          <li>Judged across: problem definition, design, value, and governance</li>
+          <li>Finalists earn recognition points. Winner gets practice-wide recognition + a year's AI subscription.</li>
+        </ul>
+        <p class="cm-den-categories">Submission categories: <strong>revenue generation · pace and productivity · client delivery</strong></p>
+      </div>
+      <div class="cm-workshops-panel cm-reveal cm-reveal-delay-2">
+        <h3>Supporting Workshops</h3>
+        <p>Sessions alternate between lunchtime and after-work, so there's a slot for everyone. <strong>We request at least one session is made mandatory.</strong></p>
+        <p class="cm-workshop-eyebrow">Workshop Structure</p>
+        <div class="cm-workshop-steps">
+          <div class="cm-workshop-step"><h4>Design Thinking / Demo</h4><ul><li>Problem framing</li><li>AI matrix ideation</li><li>Build focused demo</li></ul></div>
+          <div class="cm-workshop-step"><h4>Agent Building Time</h4><ul><li>Use-case of the session or their own</li><li>Support available throughout</li></ul></div>
+          <div class="cm-workshop-step"><h4>Show-and-Tell / Feedback</h4><ul><li>Cross-evaluation of agents using criteria</li><li>Show-and-tell</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── JUDGING CRITERIA ───────────────────────────────────── -->
+<section class="cm-judging" aria-labelledby="judging-heading">
+  <div class="cm-container">
+    <p class="cm-section-eyebrow">How You'll Be Judged</p>
+    <h2 class="cm-section-title" id="judging-heading">Judging Criteria</h2>
+    <p class="cm-section-lead">Every submission is evaluated across four equally-weighted dimensions by a senior panel.</p>
+    <div class="cm-criteria-grid">
+      <div class="cm-criterion cm-reveal">
+        <div class="cm-criterion-num">01</div>
+        <p class="cm-criterion-label">Problem Definition</p>
+        <p class="cm-criterion-desc">Is the problem real, well-scoped, and worth solving? Does the agent address a genuine pain point in capital markets?</p>
+      </div>
+      <div class="cm-criterion cm-reveal cm-reveal-delay-1">
+        <div class="cm-criterion-num">02</div>
+        <p class="cm-criterion-label">Design</p>
+        <p class="cm-criterion-desc">Is the agent well-architected? Does it handle edge cases, errors, and user experience thoughtfully?</p>
+      </div>
+      <div class="cm-criterion cm-reveal cm-reveal-delay-2">
+        <div class="cm-criterion-num">03</div>
+        <p class="cm-criterion-label">Value</p>
+        <p class="cm-criterion-desc">What is the measurable impact — time saved, revenue generated, or quality improved? Can it scale?</p>
+      </div>
+      <div class="cm-criterion cm-reveal cm-reveal-delay-3">
+        <div class="cm-criterion-num">04</div>
+        <p class="cm-criterion-label">Governance</p>
+        <p class="cm-criterion-desc">Is it safe, auditable, and compliant? Does it include human-in-the-loop controls appropriate for a regulated environment?</p>
+      </div>
+    </div>
+    <div class="cm-prize-banner cm-reveal">
+      <div class="cm-prize-text">
+        <h3>🏆 What the Winner Gets</h3>
+        <p>Finalists earn recognition points and practice-wide visibility. The overall winner receives a prize package worth celebrating.</p>
+      </div>
+      <div class="cm-prize-items">
+        <div class="cm-prize-item">Practice-wide recognition</div>
+        <div class="cm-prize-item">1 year AI subscription</div>
+        <div class="cm-prize-item">Recognition points</div>
+        <div class="cm-prize-item">Senior panel feedback</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TIMELINE ───────────────────────────────────────────── -->
+<section id="timeline" class="cm-timeline-section" aria-labelledby="timeline-heading">
+  <div class="cm-container">
+    <p class="cm-section-eyebrow">Key Dates</p>
+    <h2 class="cm-section-title" id="timeline-heading">Timeline</h2>
+    <div class="cm-timeline-legend">
+      <div class="cm-legend-item"><span class="cm-legend-dot cm-legend-dot--copilot"></span> Copilot track</div>
+      <div class="cm-legend-item"><span class="cm-legend-dot cm-legend-dot--claude"></span> Claude track</div>
+      <div class="cm-legend-item"><span class="cm-legend-star">★</span> Agentic Den finale</div>
+    </div>
+    <div class="cm-timeline-tracks">
+      <div class="cm-track cm-reveal">
+        <div class="cm-track-header"><span class="cm-track-dot cm-track-dot--copilot"></span><span class="cm-track-name">Copilot Track</span></div>
+        <div class="cm-track-milestones">
+          <div class="cm-milestone"><p class="cm-milestone-date">22 April</p><p class="cm-milestone-label">Submissions open</p></div>
+          <div class="cm-milestone"><p class="cm-milestone-date">29 April</p><p class="cm-milestone-label">Submission deadline</p></div>
+          <div class="cm-milestone cm-milestone--finale"><p class="cm-milestone-date">★ 6 May</p><p class="cm-milestone-label">Agentic Den finale</p></div>
+        </div>
+      </div>
+      <div class="cm-track cm-reveal cm-reveal-delay-1">
+        <div class="cm-track-header"><span class="cm-track-dot cm-track-dot--claude"></span><span class="cm-track-name">Claude Track</span></div>
+        <div class="cm-track-milestones">
+          <div class="cm-milestone"><p class="cm-milestone-date">13 May</p><p class="cm-milestone-label">Submissions open</p></div>
+          <div class="cm-milestone"><p class="cm-milestone-date">27 May</p><p class="cm-milestone-label">Submission deadline</p></div>
+          <div class="cm-milestone cm-milestone--finale"><p class="cm-milestone-date">★ 10 June</p><p class="cm-milestone-label">Agentic Den finale</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ROI ────────────────────────────────────────────────── -->
+<section class="cm-roi-section" aria-labelledby="roi-heading">
+  <div class="cm-container">
+    <p class="cm-section-eyebrow">Why It Matters</p>
+    <h2 class="cm-section-title" id="roi-heading">Projected Impact</h2>
+    <p class="cm-section-lead">Every session is designed to produce tangible, measurable output — not just awareness.</p>
+    <div class="cm-roi-grid">
+      <div class="cm-roi-card cm-reveal">
+        <div class="cm-roi-icon">🤖</div>
+        <h4>Agents Built</h4>
+        <p>Every attendee leaves with a working agent — not just watched one. Real capability, deployed by real people.</p>
+      </div>
+      <div class="cm-roi-card cm-reveal cm-reveal-delay-1">
+        <div class="cm-roi-icon">💡</div>
+        <h4>Idea Pipeline</h4>
+        <p>A live log of use cases for internal and client use, built across the programme and ready to action immediately.</p>
+      </div>
+      <div class="cm-roi-card cm-reveal cm-reveal-delay-2">
+        <div class="cm-roi-icon">📈</div>
+        <h4>Skill Uplift</h4>
+        <p>Measurable — we know who can build and what to do next. Every group moves up the skill ladder, across the whole practice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CALLOUT ────────────────────────────────────────────── -->
+<section class="cm-callout" aria-label="Tagline">
+  <div class="cm-container">
+    <h2 class="cm-callout-text cm-reveal">
+      The future of capital markets is <em>agentic</em> &mdash;
+      and it&rsquo;s <span class="cm-callout-ul">happening now.</span>
+    </h2>
+  </div>
+</section>
+
+<!-- ── ABOUT US ───────────────────────────────────────────── -->
+<section id="about" class="cm-about" aria-labelledby="about-heading">
+  <div class="cm-container">
+    <div class="cm-about-intro cm-reveal">
+      <p class="cm-section-eyebrow">Who We Are</p>
+      <h2 class="cm-section-title" id="about-heading">About Us</h2>
+      <p class="cm-about-lead">The <strong>Capital Markets Agentic Den</strong> is organised by CM.AI and run by two Accenture Management Consulting Analysts — both Exeter graduates — with backgrounds spanning capital markets, AI, financial modelling, and strategy.</p>
+    </div>
+    <div class="cm-team-grid">
+      <div class="cm-team-card cm-reveal">
+        <div><img src="saanvi.png" alt="Saanvi Raghuwanshi" class="cm-team-photo"></div>
+        <div>
+          <div class="cm-team-name-row">
+            <h3 class="cm-team-name">Saanvi Raghuwanshi</h3>
+            <a href="https://www.linkedin.com/in/saanvir/" target="_blank" rel="noopener noreferrer" class="cm-linkedin-btn" aria-label="Saanvi on LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+          </div>
+          <p class="cm-team-role">Management Consulting Analyst · Accenture</p>
+          <p class="cm-team-bio">Saanvi is a Management Consulting Analyst at Accenture, having joined full-time in September 2025 following her BSc (Hons) in Accounting and Finance from the University of Exeter Business School. Her background spans financial modelling, data science, and strategy — including an M&A and Transactions Advisory internship at Grant Thornton in Dubai. She brings a strong technical foundation to AI, having designed and coded machine learning classification models during her studies. Since joining Accenture, she has delivered multiple <strong>agentic AI training sessions</strong>, including client-facing workshops. At Exeter she was Operations Lead for Exe Consulting and Project Manager at 180 Degrees Consulting, and she is passionate about applying <strong>agentic AI</strong> to solve real problems in capital markets.</p>
+          <div class="cm-team-tags">
+            <span class="cm-tag">Capital Markets</span>
+            <span class="cm-tag">Agentic AI</span>
+            <span class="cm-tag">Management Consulting</span>
+            <span class="cm-tag">Accenture</span>
+          </div>
+        </div>
+      </div>
+      <div class="cm-team-card cm-reveal cm-reveal-delay-1">
+        <div><img src="rosa.png" alt="Rosa Bhanley" class="cm-team-photo"></div>
+        <div>
+          <div class="cm-team-name-row">
+            <h3 class="cm-team-name">Rosa Bhanley</h3>
+            <a href="https://www.linkedin.com/in/rosa-bhanley-1a7488232/" target="_blank" rel="noopener noreferrer" class="cm-linkedin-btn" aria-label="Rosa Bhanley on LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+          </div>
+          <p class="cm-team-role">Management Consulting Analyst · Accenture</p>
+          <p class="cm-team-bio">Rosa is a Management Consulting Analyst at Accenture, having joined full-time in September 2025 and working across Capital Markets engagements. She graduated with a First Class (Hons) degree in Business and Management from the University of Exeter, where she held leadership roles in the Women in Business and African &amp; Caribbean societies and received a Dean's Commendation. Prior to Accenture, she interned in Investor Relations at CT Partners Group and Bridges Fund Management, where she explored practical applications of <strong>AI</strong> to improve operations and decision-making. Since joining, she has delivered multiple <strong>agentic AI training sessions</strong>, including client-facing workshops. She sits on the Alumni Ambassador Board of upReach, the social mobility charity, and has won a SSMA Outstanding Achievement Award for Professional Services at Mansion House.</p>
+          <div class="cm-team-tags">
+            <span class="cm-tag">Capital Markets</span>
+            <span class="cm-tag">AI &amp; Cloud</span>
+            <span class="cm-tag">Power BI</span>
+            <span class="cm-tag">University of Exeter</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cm-about-stats-row cm-reveal">
+      <div class="cm-stat"><span class="cm-stat-val">2</span><span class="cm-stat-label">Tracks</span></div>
+      <div class="cm-stat"><span class="cm-stat-val">5</span><span class="cm-stat-label">Sessions</span></div>
+      <div class="cm-stat"><span class="cm-stat-val">1</span><span class="cm-stat-label">Day</span></div>
+      <div class="cm-stat"><span class="cm-stat-val">∞</span><span class="cm-stat-label">Possibilities</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ────────────────────────────────────────────────── -->
+<section id="faq" class="cm-faq" aria-labelledby="faq-heading">
+  <div class="cm-container">
+    <p class="cm-section-eyebrow">Got Questions?</p>
+    <h2 class="cm-section-title" id="faq-heading">Frequently Asked Questions</h2>
+    <p class="cm-section-lead">Everything you need to know before submitting.</p>
+    <div class="cm-faq-list" id="faq-list">
+
+      <div class="cm-faq-item">
+        <button class="cm-faq-q" aria-expanded="false">
+          Who can submit an agent?
+          <span class="cm-faq-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="cm-faq-a"><p>Anyone in the Capital Markets practice can submit — from analysts to senior managers. You don't need to have attended a workshop to enter, though it's strongly recommended. Independent submissions are welcome across both tracks.</p></div>
+      </div>
+
+      <div class="cm-faq-item">
+        <button class="cm-faq-q" aria-expanded="false">
+          What counts as an "agent"?
+          <span class="cm-faq-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="cm-faq-a"><p>An agent is an AI system that can <strong>take actions autonomously</strong> to complete a task — not just answer questions. This could be a Co-Pilot workflow that pulls data, analyses it, and drafts a report; or a Claude agent that monitors a data source and triggers a structured output. If it does something, not just says something, it qualifies.</p></div>
+      </div>
+
+      <div class="cm-faq-item">
+        <button class="cm-faq-q" aria-expanded="false">
+          What are the three submission categories?
+          <span class="cm-faq-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="cm-faq-a"><p><strong>Revenue Generation</strong> — agents that directly contribute to winning or growing client relationships. <strong>Pace &amp; Productivity</strong> — agents that save time, reduce manual effort, or accelerate internal workflows. <strong>Client Delivery</strong> — agents that improve the quality, speed, or consistency of what we deliver to clients.</p></div>
+      </div>
+
+      <div class="cm-faq-item">
+        <button class="cm-faq-q" aria-expanded="false">
+          How will submissions be judged?
+          <span class="cm-faq-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="cm-faq-a"><p>All submissions are scored across four equally-weighted criteria: <strong>Problem Definition</strong>, <strong>Design</strong>, <strong>Value</strong>, and <strong>Governance</strong>. The top 10 are invited to present live to a senior judging panel at the Agentic Den finale. Judges are senior leaders and subject matter experts from across the practice.</p></div>
+      </div>
+
+      <div class="cm-faq-item">
+        <button class="cm-faq-q" aria-expanded="false">
+          Do I have to attend every workshop?
+          <span class="cm-faq-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="cm-faq-a"><p>No — but attending at least one is strongly recommended, and we're requesting that leadership makes one session mandatory per team member. Sessions alternate between lunchtime and after-work to maximise flexibility. Each workshop is self-contained, so you'll get value from any single one.</p></div>
+      </div>
+
+      <div class="cm-faq-item">
+        <button class="cm-faq-q" aria-expanded="false">
+          What does it cost to participate?
+          <span class="cm-faq-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="cm-faq-a"><p>The programme runs at <strong>£12 per head</strong> across all sessions and the finale. This covers facilitation, materials, and the event itself. Leadership endorsement and budget approval should be confirmed in advance — speak to your team lead if you have questions about this.</p></div>
+      </div>
+
+      <div class="cm-faq-item">
+        <button class="cm-faq-q" aria-expanded="false">
+          Can I submit as a team?
+          <span class="cm-faq-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="cm-faq-a"><p>Yes — team submissions are encouraged. There's no maximum team size, though we recommend keeping groups small enough that everyone is genuinely contributing to the build. All team members should be listed on the submission form.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ───────────────────────────────────────── -->
+<section class="cm-testimonials" aria-label="What people say">
+  <div class="cm-container">
+    <p class="cm-section-eyebrow" style="margin-bottom:0.5rem;">Voices</p>
+    <h2 class="cm-section-title" style="margin-bottom:2.5rem;">What the community says</h2>
+    <div id="cm-testi-slider">
+      <div class="px-2">
+        <div class="cm-testi-card">
+          <span class="cm-testi-quote" aria-hidden="true">&ldquo;</span>
+          <p class="cm-testi-text">A genuinely unique format — watching live agents compete on real market scenarios is unlike any other event in the space.</p>
+          <div class="cm-testi-author">
+            <div class="cm-testi-avatar" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div><p class="cm-testi-name">Alexandra Reid</p><p class="cm-testi-role">Head of Quant Strategy, Tidal Capital</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="px-2">
+        <div class="cm-testi-card">
+          <span class="cm-testi-quote" aria-hidden="true">&ldquo;</span>
+          <p class="cm-testi-text">The most practically relevant AI event I've attended in financial services. No hype — just working agents doing real things.</p>
+          <div class="cm-testi-author">
+            <div class="cm-testi-avatar" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div><p class="cm-testi-name">James Thornton</p><p class="cm-testi-role">CTO, Reef Technologies</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="px-2">
+        <div class="cm-testi-card">
+          <span class="cm-testi-quote" aria-hidden="true">&ldquo;</span>
+          <p class="cm-testi-text">Submitting our agent was straightforward and the feedback from the panel was genuinely valuable for our roadmap.</p>
+          <div class="cm-testi-author">
+            <div class="cm-testi-avatar" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div><p class="cm-testi-name">Sara Nilsson</p><p class="cm-testi-role">VP Engineering, Nordic Prime</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="px-2">
+        <div class="cm-testi-card">
+          <span class="cm-testi-quote" aria-hidden="true">&ldquo;</span>
+          <p class="cm-testi-text">CM.AI has built something special here. The quality of submissions and the calibre of discussion was exceptional.</p>
+          <div class="cm-testi-author">
+            <div class="cm-testi-avatar" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div><p class="cm-testi-name">Kwame Asante</p><p class="cm-testi-role">Head of AI, Meridian Markets</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LEARN MORE ─────────────────────────────────────────── -->
+<section id="learn-more" class="cm-learn" aria-labelledby="learn-heading">
+  <div class="cm-container">
+    <p class="cm-section-eyebrow">Get Involved</p>
+    <h2 class="cm-section-title" id="learn-heading">Ready to Enter?</h2>
+    <p class="cm-section-lead" style="margin-bottom:0;">Your starting points for submitting an agent or tracking the competition.</p>
+    <div class="cm-learn-cards">
+      <div class="cm-learn-card cm-reveal">
+        <div class="cm-learn-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        </div>
+        <h3>Submission Form</h3>
+        <p>Submit your agentic AI project for review by the CM.AI team. Selected submissions will be featured at the live event. Include a short description, use-case, and demo if possible.</p>
+        <a href="#" class="btn btn-primary cta-link" data-url-key="SUBMISSION_FORM_URL">Open Form →</a>
+      </div>
+      <div class="cm-learn-card cm-reveal cm-reveal-delay-1">
+        <div class="cm-learn-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Excel Agent Tracker</h3>
+        <p>Monitor submitted agents, their assigned tracks, and real-time status updates as the event approaches. Updated live by the CM.AI team.</p>
+        <a href="#" class="btn btn-primary cta-link" data-url-key="TRACKER_URL">Open Tracker →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer class="cm-footer" role="contentinfo">
+  <div class="cm-container">
+    <div class="cm-footer-grid">
+      <div class="cm-footer-brand-col">
+        <div class="cm-footer-logo">CM<span>.AI</span></div>
+        <p class="cm-footer-desc">Capital Markets Agentic Den is an invitation-only event produced by CM.AI — the specialist AI advisory group for financial services.</p>
+        <p class="cm-footer-desc" style="margin-top:0.75rem;">22 June 2026 · London</p>
+      </div>
+      <div class="cm-footer-links-col">
+        <div class="cm-footer-links-grid">
+          <div class="cm-footer-col">
+            <h5>Event</h5>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#sessions">Sessions</a></li>
+              <li><a href="#the-den">The Den</a></li>
+              <li><a href="#timeline">Timeline</a></li>
+            </ul>
+          </div>
+          <div class="cm-footer-col">
+            <h5>Participate</h5>
+            <ul>
+              <li><a href="#" class="cta-link" data-url-key="SUBMISSION_FORM_URL">Submission Form</a></li>
+              <li><a href="#" class="cta-link" data-url-key="TRACKER_URL">Agent Tracker</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#about">About Us</a></li>
+            </ul>
+          </div>
+          <div class="cm-footer-col">
+            <h5>CM.AI</h5>
+            <ul>
+              <li><a href="#">About CM.AI</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="cm-footer-cta-col">
+        <p style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#fff;margin-bottom:0.75rem;">Stay Updated</p>
+        <div class="cm-footer-input-row">
+          <input class="cm-footer-input" type="email" placeholder="Email address" aria-label="Email for updates" id="footer-email">
+          <button class="cm-footer-submit" id="footer-submit-btn">Go</button>
+        </div>
+        <div class="cm-footer-socials" aria-label="Social links">
+          <a href="#" class="cm-social" aria-label="Twitter/X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="cm-social" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="cm-social" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="cm-footer-bottom">
+      <p class="cm-footer-copy">&copy; 2026 CM.AI. All rights reserved.</p>
+      <p class="cm-footer-ai">This site contains AI-generated content.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  /* ── Placeholder link guard ──────────────────── */
+  var URL_MAP = {
+    SUBMISSION_FORM_URL: window.SUBMISSION_FORM_URL || '',
+    TRACKER_URL:         window.TRACKER_URL         || ''
+  };
+  document.querySelectorAll('.cta-link[data-url-key]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      var url = URL_MAP[this.getAttribute('data-url-key')];
+      if(!url){ alert('Link not configured yet. Please check back soon.'); return; }
+      window.open(url, '_blank', 'noopener,noreferrer');
+    });
+  });
+
+  /* ── Mobile nav ──────────────────────────────── */
+  document.getElementById('nav-toggle').addEventListener('click', function(){
+    var items = document.getElementById('nav-items');
+    var open = items.classList.toggle('open');
+    this.setAttribute('aria-expanded', open);
+  });
+
+  /* ── Smooth scroll ───────────────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = this.getAttribute('href').slice(1);
+      if(!id) return;
+      var target = document.getElementById(id);
+      if(!target) return;
+      e.preventDefault();
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+      target.setAttribute('tabindex','-1');
+      target.focus({ preventScroll: true });
+      document.getElementById('nav-items').classList.remove('open');
+      document.getElementById('nav-toggle').setAttribute('aria-expanded','false');
+    });
+  });
+
+  /* ── Countdown ───────────────────────────────── */
+  var EVENT_DATE = new Date('2026-06-22T08:00:00Z');
+  var elDays    = document.getElementById('cd-days');
+  var elDisplay = document.getElementById('countdown');
+  var elLive    = document.getElementById('countdown-live');
+  function pad(n){ return String(Math.floor(n)).padStart(2,'0'); }
+  function tick(){
+    var diff = EVENT_DATE - new Date();
+    if(diff <= 0){
+      if(elDisplay) elDisplay.hidden = true;
+      if(elLive)    elLive.hidden    = false;
+      clearInterval(timer);
+      return;
+    }
+    if(elDays) elDays.textContent = pad(Math.floor(diff / 86400000));
+  }
+  tick();
+  var timer = setInterval(tick, 60000);
+
+  /* ── Scroll-reveal ───────────────────────────── */
+  var reveals = document.querySelectorAll('.cm-reveal');
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(function(el){ observer.observe(el); });
+  // Trigger hero reveals immediately
+  document.querySelectorAll('.cm-hero .cm-reveal').forEach(function(el){ el.classList.add('visible'); });
+
+  /* ── Sticky CTA ──────────────────────────────── */
+  var stickyCta = document.getElementById('sticky-cta');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 500){ stickyCta.classList.add('visible'); }
+    else { stickyCta.classList.remove('visible'); }
+  }, { passive: true });
+
+  /* ── Email capture (Formspree) ───────────────── */
+  // ✏️  Replace YOUR_FORM_ID below with your Formspree form ID
+  //     Sign up free at https://formspree.io → New Form → copy the ID
+  //     e.g. if your endpoint is https://formspree.io/f/abc12345, use "abc12345"
+  var FORMSPREE_ID = 'xzdydrra';
+
+  function handleEmailCapture(inputId, btnId, noteId, source){
+    var btn  = document.getElementById(btnId);
+    var note = noteId ? document.getElementById(noteId) : null;
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      var input = document.getElementById(inputId);
+      var val   = input ? input.value.trim() : '';
+      if(!val || !val.includes('@')){
+        if(note){ note.textContent = 'Please enter a valid email address.'; note.style.color = 'var(--purple)'; }
+        return;
+      }
+
+      // Disable while submitting
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      if(input) input.disabled = true;
+
+      fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: val, source: source || inputId })
+      })
+      .then(function(res){ return res.json().then(function(data){ return { ok: res.ok, data: data }; }); })
+      .then(function(result){
+        if(result.ok){
+          btn.textContent = '✓ Registered!';
+          btn.style.background = '#1a8fa8';
+          if(note){ note.textContent = "Thanks! We'll be in touch before the event."; note.style.color = 'rgba(74,63,92,0.7)'; }
+        } else {
+          // Formspree returned an error (e.g. form ID not set up yet)
+          var msg = (result.data && result.data.errors) ? result.data.errors.map(function(e){ return e.message; }).join(', ') : 'Submission failed. Please try again.';
+          if(note){ note.textContent = msg; note.style.color = 'var(--purple)'; }
+          btn.textContent = 'Register';
+          btn.disabled = false;
+          if(input) input.disabled = false;
+        }
+      })
+      .catch(function(){
+        if(note){ note.textContent = 'Network error. Please try again.'; note.style.color = 'var(--purple)'; }
+        btn.textContent = 'Register';
+        btn.disabled = false;
+        if(input) input.disabled = false;
+      });
+    });
+  }
+  handleEmailCapture('hero-email',   'hero-register-btn', 'hero-note', 'hero');
+  handleEmailCapture('footer-email', 'footer-submit-btn', null,        'footer');
+
+  /* ── Testimonials slider ─────────────────────── */
+  $('#cm-testi-slider').slick({
+    dots: true, slidesToShow: 3, slidesToScroll: 1,
+    autoplay: true, autoplaySpeed: 4500, pauseOnHover: true, arrows: false,
+    responsive: [
+      { breakpoint: 900, settings: { slidesToShow: 2 } },
+      { breakpoint: 580, settings: { slidesToShow: 1 } }
+    ]
+  });
+
+  /* ── FAQ accordion ───────────────────────────── */
+  document.querySelectorAll('.cm-faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var answer   = this.nextElementSibling;
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      // Close all others
+      document.querySelectorAll('.cm-faq-q').forEach(function(b){
+        b.setAttribute('aria-expanded','false');
+        b.nextElementSibling.classList.remove('open');
+      });
+      if(!expanded){
+        this.setAttribute('aria-expanded','true');
+        answer.classList.add('open');
+      }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
