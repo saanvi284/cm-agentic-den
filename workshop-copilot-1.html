@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Capital Markets Agentic Den — brought to you by CM.AI. An exclusive event showcasing agentic AI in capital markets.">
-  <title>Capital Markets Agentic Den — CM.AI</title>
+  <title>Workshop · AI-Assisted Trade Surveillance — CM.AI</title>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -244,20 +244,8 @@
 
     .cm-hero-title { font-size: clamp(2.6rem, 6.5vw, 5.5rem); font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1.03; margin-bottom: 1.2rem; text-shadow: 0 2px 40px rgba(0,0,0,0.6); }
     .cm-hero-title em { font-style: normal; color: var(--thistle); font-weight: 900; }
-    .cm-hero-sub { font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 400; color: rgba(239,206,250,0.85); margin-bottom: 1rem; max-width: 520px; line-height: 1.7; }
-    .cm-hero-sub strong { color: #ffffff; font-weight: 700; }
-    .cm-hero-prereq {
-      font-size: 0.92rem; font-weight: 500;
-      color: var(--thistle);
-      background: rgba(164,44,214,0.18);
-      border: 1px solid rgba(239,206,250,0.25);
-      border-radius: 6px;
-      padding: 0.6rem 0.9rem;
-      margin-bottom: 2rem;
-      max-width: 520px;
-      line-height: 1.55;
-    }
-    .cm-hero-prereq strong { color: #ffffff; font-weight: 800; }
+    .cm-hero-sub { font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 400; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 520px; line-height: 1.7; }
+    .cm-hero-sub strong { color: var(--thistle); font-weight: 700; }
 
     .cm-hero-input-row { display: inline-flex; border-radius: 6px; overflow: hidden; margin-bottom: 1rem; box-shadow: 0 4px 24px rgba(0,0,0,0.5); }
     .cm-hero-input { font-family: var(--font); font-size: 0.9rem; background: rgba(19,41,61,0.6); backdrop-filter: blur(8px); border: 1px solid rgba(239,206,250,0.3); border-right: none; color: #fff; padding: 0.85rem 1.25rem; min-width: min(260px, 60vw); outline: none; transition: border-color 0.2s; }
@@ -608,6 +596,388 @@
 }
 .cm-footer-about-linkedin:hover { background: var(--purple-soft); }
 
+
+    /* ── Workshop detail page ───────────────────────────────── */
+    .cm-back-bar {
+      padding: 1.25rem 0 0.5rem;
+      background: var(--bg);
+    }
+    .cm-back-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.85rem; font-weight: 600; color: var(--purple);
+      text-decoration: none;
+      padding: 0.4rem 0.7rem 0.4rem 0.5rem;
+      border-radius: 6px;
+      transition: background 0.15s ease;
+    }
+    .cm-back-link:hover { background: var(--purple-soft); }
+    .cm-back-link svg { flex-shrink: 0; }
+
+    .cm-ws-hero {
+      padding: 2rem 0 3rem;
+      background: var(--bg);
+      border-bottom: 1px solid rgba(164,44,214,0.08);
+    }
+    .cm-ws-eyebrow {
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--purple); margin-bottom: 0.75rem;
+    }
+    .cm-ws-title {
+      font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 900;
+      color: var(--deep); letter-spacing: -0.025em; line-height: 1.1;
+      margin-bottom: 1rem; max-width: 880px;
+    }
+    .cm-ws-meta {
+      display: flex; flex-wrap: wrap; gap: 1.5rem;
+      margin-top: 1.25rem;
+      font-size: 0.88rem; color: var(--text-muted);
+    }
+    .cm-ws-meta-item { display: inline-flex; align-items: center; gap: 0.45rem; }
+    .cm-ws-meta-item strong { color: var(--deep); font-weight: 700; }
+
+    .cm-ws-body {
+      padding: 3rem 0 5rem;
+      background: var(--bg);
+    }
+    .cm-ws-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    @media (min-width: 900px) {
+      .cm-ws-layout { grid-template-columns: minmax(0, 1fr); gap: 3.5rem; }
+    }
+
+    .cm-ws-section { margin-bottom: 2.5rem; }
+    .cm-ws-section:last-child { margin-bottom: 0; }
+    .cm-ws-section-title {
+      font-size: 1.25rem; font-weight: 900; color: var(--deep);
+      letter-spacing: -0.015em; margin-bottom: 0.85rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(164,44,214,0.2);
+    }
+    .cm-ws-section p { font-size: 0.95rem; line-height: 1.7; color: var(--text); margin-bottom: 0.85rem; }
+    .cm-ws-section p:last-child { margin-bottom: 0; }
+
+    .cm-ws-list { list-style: none; padding: 0; }
+    .cm-ws-list li {
+      font-size: 0.95rem; line-height: 1.65;
+      padding: 0.55rem 0 0.55rem 1.5rem;
+      position: relative;
+      border-bottom: 1px solid rgba(164,44,214,0.08);
+    }
+    .cm-ws-list li:last-child { border-bottom: none; }
+    .cm-ws-list li::before {
+      content: '✓';
+      position: absolute; left: 0; top: 0.55rem;
+      color: var(--purple); font-weight: 800;
+    }
+
+    /* Numbered list — for ordered step-based content */
+    .cm-ws-numlist { list-style: none; padding: 0; counter-reset: wsnum; }
+    .cm-ws-numlist li {
+      counter-increment: wsnum;
+      font-size: 0.95rem; line-height: 1.65;
+      padding: 0.7rem 0 0.7rem 2.5rem;
+      position: relative;
+      border-bottom: 1px solid rgba(164,44,214,0.08);
+    }
+    .cm-ws-numlist li:last-child { border-bottom: none; }
+    .cm-ws-numlist li::before {
+      content: counter(wsnum);
+      position: absolute; left: 0; top: 0.7rem;
+      width: 1.75rem; height: 1.75rem;
+      background: var(--purple); color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 800;
+    }
+
+    /* Demo video player */
+    .cm-ws-video-wrap {
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(164,44,214,0.12);
+      box-shadow: 0 8px 28px rgba(19,41,61,0.12);
+    }
+    .cm-ws-video-wrap video {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+    .cm-ws-video-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    /* Persona card */
+    .cm-persona {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      background: #fff;
+      border: 1px solid rgba(164,44,214,0.15);
+      border-left: 4px solid var(--purple);
+      border-radius: 10px;
+      padding: 1.75rem;
+    }
+    @media (min-width: 640px) {
+      .cm-persona { grid-template-columns: 180px 1fr; gap: 1.75rem; }
+    }
+    .cm-persona-avatar {
+      width: 100%; aspect-ratio: 1;
+      max-width: 180px;
+      background: var(--thistle);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem; font-weight: 900; color: var(--purple);
+      letter-spacing: -0.02em;
+      margin: 0 auto;
+    }
+    .cm-persona-name {
+      font-size: 1.35rem; font-weight: 900; color: var(--deep);
+      letter-spacing: -0.02em; margin-bottom: 0.2rem;
+    }
+    .cm-persona-role {
+      font-size: 0.85rem; font-weight: 700; color: var(--purple);
+      text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+    .cm-persona p { font-size: 0.93rem; line-height: 1.65; color: var(--text); margin-bottom: 0.7rem; }
+    .cm-persona p:last-child { margin-bottom: 0; }
+    .cm-persona-tags {
+      display: flex; flex-wrap: wrap; gap: 0.35rem;
+      margin-top: 1rem;
+    }
+    .cm-persona-tag {
+      font-size: 0.7rem; font-weight: 700; color: var(--purple);
+      background: var(--purple-soft);
+      border: 1px solid var(--purple-border);
+      border-radius: 100px;
+      padding: 0.2rem 0.7rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* How Might We — intro strip (What / Why / Get / Need) */
+    .cm-hmw-intro {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    @media (min-width: 640px) {
+      .cm-hmw-intro { grid-template-columns: repeat(4, 1fr); }
+    }
+    .cm-hmw-intro-card {
+      background: var(--surface-2);
+      border: 1px solid rgba(164,44,214,0.12);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .cm-hmw-intro-num {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 800;
+      color: #fff; background: var(--purple);
+      padding: 0.15rem 0.55rem; border-radius: 4px;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .cm-hmw-intro-title {
+      font-size: 0.92rem; font-weight: 800; color: var(--deep);
+      margin-bottom: 0.5rem; letter-spacing: -0.01em;
+    }
+    .cm-hmw-intro-body { font-size: 0.85rem; line-height: 1.6; color: var(--text-muted); }
+
+    /* How Might We — numbered step cards (vertical stack) */
+    .cm-hmw-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .cm-hmw-step {
+      background: #fff;
+      border: 1px solid rgba(164,44,214,0.12);
+      border-radius: 10px;
+      padding: 1.25rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .cm-hmw-step-num {
+      position: absolute; top: -12px; left: 1.25rem;
+      font-size: 0.75rem; font-weight: 900; letter-spacing: 0.05em;
+      color: #fff; background: var(--purple);
+      padding: 0.25rem 0.7rem; border-radius: 6px;
+    }
+    .cm-hmw-step-title {
+      font-size: 1rem; font-weight: 800; color: var(--deep);
+      letter-spacing: -0.01em; margin-top: 0.25rem;
+    }
+    .cm-hmw-step-body {
+      font-size: 0.88rem; line-height: 1.6; color: var(--text);
+    }
+    .cm-hmw-step-body ul {
+      list-style: none; padding: 0; margin-top: 0.5rem;
+      display: flex; flex-direction: column; gap: 0.35rem;
+    }
+    .cm-hmw-step-body ul li {
+      font-size: 0.85rem; color: var(--text-muted); line-height: 1.55;
+      padding-left: 1rem; position: relative;
+    }
+    .cm-hmw-step-body ul li::before {
+      content: '•'; color: var(--purple);
+      position: absolute; left: 0; top: 0; font-weight: 800;
+    }
+    .cm-hmw-step-tip {
+      background: rgba(66,191,221,0.08);
+      border-left: 3px solid var(--sky);
+      border-radius: 4px;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text);
+      line-height: 1.55;
+      margin-top: auto;
+    }
+    .cm-hmw-step-tip strong { color: #1a8fa8; font-weight: 800; }
+    .cm-hmw-step em { font-style: italic; color: var(--text-muted); }
+
+    /* Agent link pill next to a section title */
+    .cm-ws-section-title-row {
+      display: flex; align-items: center;
+      flex-wrap: wrap; gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(164,44,214,0.2);
+    }
+    .cm-ws-section-title-row .cm-ws-section-title {
+      margin: 0; padding: 0; border: none;
+    }
+    .cm-agent-pill {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.75rem; font-weight: 700;
+      color: #fff;
+      background: var(--purple);
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .cm-agent-pill:hover { background: #8e20bd; transform: translateY(-1px); }
+    .cm-agent-pill svg { flex-shrink: 0; }
+
+    /* Collapsible "clustering" explainer inside a step */
+    details.cm-explainer {
+      margin-top: 0.75rem;
+      background: var(--surface-2);
+      border: 1px solid rgba(164,44,214,0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    details.cm-explainer > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 0.75rem 1rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--purple);
+      user-select: none;
+    }
+    details.cm-explainer > summary::-webkit-details-marker { display: none; }
+    details.cm-explainer > summary::before {
+      content: '';
+      width: 0; height: 0;
+      border-left: 6px solid currentColor;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      transition: transform 0.15s ease;
+      flex-shrink: 0;
+    }
+    details.cm-explainer[open] > summary::before { transform: rotate(90deg); }
+    details.cm-explainer > summary:hover { background: rgba(164,44,214,0.05); }
+    .cm-explainer-body { padding: 0 1rem 1rem; }
+    .cm-explainer-body .cm-hmw-intro { margin: 0.5rem 0 1.25rem; }
+    .cm-explainer-body .cm-hmw-intro-card { background: #fff; }
+    .cm-explainer-body .cm-hmw-steps { gap: 0.75rem; }
+    .cm-explainer-body .cm-hmw-step { padding: 1rem; background: #fff; }
+    .cm-explainer-body .cm-hmw-step-num { font-size: 0.7rem; }
+
+    .cm-ws-agenda {
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .cm-ws-agenda-item {
+      display: grid; grid-template-columns: 90px 1fr; gap: 1rem;
+      padding: 0.85rem 1rem;
+      background: #fff;
+      border: 1px solid rgba(164,44,214,0.12);
+      border-radius: 8px;
+    }
+    .cm-ws-agenda-time {
+      font-size: 0.8rem; font-weight: 700;
+      color: var(--purple);
+      letter-spacing: 0.02em;
+    }
+    .cm-ws-agenda-title {
+      font-size: 0.92rem; font-weight: 700; color: var(--deep);
+      margin-bottom: 0.2rem;
+    }
+    .cm-ws-agenda-desc {
+      font-size: 0.82rem; color: var(--text-muted); line-height: 1.55;
+    }
+
+    /* Placeholder markers so the user can find fill-in points quickly */
+    .cm-placeholder {
+      display: inline-block;
+      background: rgba(255, 220, 100, 0.35);
+      border: 1px dashed rgba(200, 150, 0, 0.6);
+      color: #7a5a00;
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.85em;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    /* Sidebar info card */
+    .cm-ws-side {
+      position: sticky; top: 5rem;
+      background: #fff;
+      border: 1px solid rgba(164,44,214,0.12);
+      border-radius: 10px;
+      padding: 1.5rem;
+      align-self: start;
+    }
+    .cm-ws-side h3 {
+      font-size: 0.75rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--purple); margin-bottom: 1rem;
+    }
+    .cm-ws-side dl { display: grid; gap: 0.75rem; }
+    .cm-ws-side dt { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; }
+    .cm-ws-side dd { font-size: 0.9rem; color: var(--deep); font-weight: 700; margin-top: 0.1rem; }
+
+    /* Locked banner at top (visible until 29 April; remove when going live) */
+    .cm-ws-locked-banner {
+      background: #fff4d6;
+      border: 1px solid #f0d985;
+      border-radius: 8px;
+      padding: 0.85rem 1.1rem;
+      display: flex; align-items: center; gap: 0.65rem;
+      font-size: 0.88rem;
+      color: #6b4f00;
+      margin-bottom: 1.5rem;
+    }
+    .cm-ws-locked-banner svg { flex-shrink: 0; color: #a27800; }
+    .cm-ws-locked-banner strong { font-weight: 800; }
+
 </style>
 
 </head>
@@ -637,8 +1007,8 @@
         </button>
       </div>
       <div class="cm-nav-items" id="nav-items">
-        <a href="index.html"     class="cm-nav-link" aria-current="page">Home</a>
-        <a href="workshops.html" class="cm-nav-link">Workshops</a>
+        <a href="index.html"     class="cm-nav-link">Home</a>
+        <a href="workshops.html" class="cm-nav-link" aria-current="page">Workshops</a>
         <a href="the-den.html"   class="cm-nav-link">The Den</a>
         <a href="faq.html"       class="cm-nav-link">FAQ</a>
         <div class="cm-nav-ctas">
@@ -650,635 +1020,324 @@
   </div>
 </nav>
 
-<!-- ── HERO ──────────────────────────────────────────────── -->
-<section id="home" class="cm-hero" aria-label="Hero">
+<!-- ── BACK LINK ──────────────────────────────────────── -->
+<div class="cm-back-bar">
   <div class="cm-container">
-    <div class="cm-hero-content">
-      <div class="cm-hero-badge cm-reveal">
-        <span class="cm-badge-inner">Live Event</span>
-        17 June 2026 &middot; London
-        <span class="cm-badge-pulse" aria-hidden="true"></span>
-      </div>
-      <h1 class="cm-hero-title cm-reveal cm-reveal-delay-1">
-        Capital Markets<br><em>Agentic Den</em>
-      </h1>
-      <p class="cm-hero-sub cm-reveal cm-reveal-delay-2">
-        brought to you by <strong>CM.AI</strong> &mdash; where agentic AI meets capital markets
-      </p>
-      <p class="cm-hero-prereq cm-reveal cm-reveal-delay-2">
-        <strong>Prerequisites:</strong> Co-Pilot and Claude licenses. Bring your laptop to the workshops.
-      </p>
-      <div class="cm-reveal cm-reveal-delay-3">
-        <div class="cm-hero-input-row">
-          <input class="cm-hero-input" type="email" placeholder="Enter your email to register interest" aria-label="Email address" id="hero-email">
-          <button class="cm-hero-btn" id="hero-register-btn">Register</button>
-        </div>
-        <p class="cm-hero-note" id="hero-note">No commitment required</p>
-      </div>
-      <div class="cm-hero-ctas cm-reveal cm-reveal-delay-4">
-        <span class="btn btn-primary btn-lg btn-locked" aria-disabled="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Submissions open 29 April
-        </span>
-        <a href="#" class="btn btn-ghost btn-lg cta-link" data-url-key="TRACKER_URL">Agent Tracker →</a>
-      </div>
-    </div>
+    <a href="workshops.html" class="cm-back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Workshops
+    </a>
   </div>
-  <div class="cm-scroll-hint" aria-hidden="true">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-    Scroll
-  </div>
+</div>
 
-  <!-- Canary Wharf Skyline SVG -->
-  <svg class="cm-hero-skyline" viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <defs>
-      <linearGradient id="bldg-grad" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#2a3d6b" stop-opacity="0.8"/>
-        <stop offset="100%" stop-color="#13293d" stop-opacity="1"/>
-      </linearGradient>
-      <linearGradient id="bldg-grad-2" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#1e3558" stop-opacity="0.85"/>
-        <stop offset="100%" stop-color="#13293d" stop-opacity="1"/>
-      </linearGradient>
-      <linearGradient id="bldg-grad-3" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#13293d" stop-opacity="0.9"/>
-        <stop offset="100%" stop-color="#0d1f2d" stop-opacity="1"/>
-      </linearGradient>
-      <linearGradient id="sky-glow" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="rgba(125,152,161,0)" stop-opacity="0"/>
-        <stop offset="100%" stop-color="rgba(164,44,214,0.12)" stop-opacity="1"/>
-      </linearGradient>
-    </defs>
-
-    <!-- Background layer - distant city -->
-    <rect x="0" y="200" width="80" height="220" fill="url(#bldg-grad-3)" opacity="0.5"/>
-    <rect x="85" y="220" width="60" height="200" fill="url(#bldg-grad-3)" opacity="0.4"/>
-    <rect x="150" y="185" width="45" height="235" fill="url(#bldg-grad-3)" opacity="0.5"/>
-    <rect x="200" y="210" width="70" height="210" fill="url(#bldg-grad-3)" opacity="0.4"/>
-    <rect x="1280" y="195" width="80" height="225" fill="url(#bldg-grad-3)" opacity="0.5"/>
-    <rect x="1365" y="215" width="75" height="205" fill="url(#bldg-grad-3)" opacity="0.4"/>
-
-    <!-- One Canada Square -->
-    <rect x="680" y="20" width="80" height="380" fill="url(#bldg-grad)"/>
-    <polygon points="680,20 760,20 720,0" fill="#a42cd6" opacity="0.6"/>
-    <!-- Windows - warm platinum glow -->
-    <rect x="690" y="30" width="12" height="8" fill="rgba(239,206,250,0.7)" rx="1"/>
-    <rect x="710" y="30" width="12" height="8" fill="rgba(66,191,221,0.5)" rx="1"/>
-    <rect x="730" y="30" width="12" height="8" fill="rgba(239,206,250,0.6)" rx="1"/>
-    <rect x="690" y="50" width="12" height="8" fill="rgba(164,44,214,0.4)" rx="1"/>
-    <rect x="710" y="50" width="12" height="8" fill="rgba(239,206,250,0.55)" rx="1"/>
-    <rect x="730" y="50" width="12" height="8" fill="rgba(66,191,221,0.4)" rx="1"/>
-    <rect x="690" y="70" width="12" height="8" fill="rgba(239,206,250,0.45)" rx="1"/>
-    <rect x="710" y="70" width="12" height="8" fill="rgba(239,206,250,0.65)" rx="1"/>
-    <rect x="730" y="70" width="12" height="8" fill="rgba(66,191,221,0.45)" rx="1"/>
-    <rect x="690" y="90" width="12" height="8" fill="rgba(239,206,250,0.6)" rx="1"/>
-    <rect x="710" y="90" width="12" height="8" fill="rgba(66,191,221,0.4)" rx="1"/>
-    <rect x="730" y="90" width="12" height="8" fill="rgba(239,206,250,0.7)" rx="1"/>
-    <!-- Blinking light on top -->
-    <circle cx="720" cy="4" r="3" fill="#42bfdd" opacity="0.9">
-      <animate attributeName="opacity" values="0.9;0.1;0.9" dur="2s" repeatCount="indefinite"/>
-    </circle>
-
-    <!-- HSBC / 8 Canada Square -->
-    <rect x="560" y="80" width="75" height="340" fill="url(#bldg-grad-2)"/>
-    <rect x="560" y="80" width="75" height="8" fill="#a42cd6" opacity="0.6"/>
-    <rect x="570" y="95" width="10" height="7" fill="rgba(239,206,250,0.45)" rx="1"/>
-    <rect x="588" y="95" width="10" height="7" fill="rgba(164,44,214,0.4)" rx="1"/>
-    <rect x="606" y="95" width="10" height="7" fill="rgba(66,191,221,0.5)" rx="1"/>
-    <rect x="570" y="112" width="10" height="7" fill="rgba(66,191,221,0.4)" rx="1"/>
-    <rect x="588" y="112" width="10" height="7" fill="rgba(239,206,250,0.7)" rx="1"/>
-    <rect x="606" y="112" width="10" height="7" fill="rgba(125,152,161,0.35)" rx="1"/>
-    <rect x="570" y="129" width="10" height="7" fill="rgba(239,206,250,0.55)" rx="1"/>
-    <rect x="588" y="129" width="10" height="7" fill="rgba(66,191,221,0.4)" rx="1"/>
-    <rect x="606" y="129" width="10" height="7" fill="rgba(239,206,250,0.6)" rx="1"/>
-
-    <!-- Citigroup Centre / 25 Canada Square -->
-    <rect x="790" y="100" width="70" height="320" fill="url(#bldg-grad-2)"/>
-    <ellipse cx="825" cy="100" rx="35" ry="12" fill="#5e6572" opacity="0.8"/>
-    <circle cx="825" cy="92" r="3" fill="#efcefa" opacity="0.8">
-      <animate attributeName="opacity" values="0.7;0.1;0.7" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    <rect x="800" y="115" width="10" height="7" fill="rgba(239,206,250,0.45)" rx="1"/>
-    <rect x="818" y="115" width="10" height="7" fill="rgba(164,44,214,0.4)" rx="1"/>
-    <rect x="836" y="115" width="10" height="7" fill="rgba(66,191,221,0.5)" rx="1"/>
-    <rect x="800" y="132" width="10" height="7" fill="rgba(66,191,221,0.45)" rx="1"/>
-    <rect x="818" y="132" width="10" height="7" fill="rgba(239,206,250,0.45)" rx="1"/>
-    <rect x="836" y="132" width="10" height="7" fill="rgba(164,44,214,0.4)" rx="1"/>
-
-    <!-- KPMG / stepped towers -->
-    <rect x="460" y="140" width="65" height="280" fill="url(#bldg-grad-2)"/>
-    <rect x="472" y="120" width="40" height="25" fill="url(#bldg-grad)" opacity="0.8"/>
-    <rect x="870" y="150" width="60" height="270" fill="url(#bldg-grad-2)"/>
-    <rect x="880" y="130" width="40" height="25" fill="url(#bldg-grad)" opacity="0.8"/>
-
-    <!-- Shorter foreground buildings -->
-    <rect x="370" y="200" width="55" height="220" fill="url(#bldg-grad-3)" opacity="0.8"/>
-    <rect x="390" y="185" width="20" height="18" fill="url(#bldg-grad)" opacity="0.7"/>
-    <rect x="940" y="190" width="55" height="230" fill="url(#bldg-grad-3)" opacity="0.8"/>
-    <rect x="955" y="175" width="20" height="18" fill="url(#bldg-grad)" opacity="0.7"/>
-
-    <!-- Far flanks -->
-    <rect x="290" y="230" width="45" height="190" fill="url(#bldg-grad-3)" opacity="0.6"/>
-    <rect x="1010" y="220" width="50" height="200" fill="url(#bldg-grad-3)" opacity="0.6"/>
-    <rect x="1065" y="240" width="40" height="180" fill="url(#bldg-grad-3)" opacity="0.5"/>
-    <rect x="1110" y="200" width="60" height="220" fill="url(#bldg-grad-3)" opacity="0.6"/>
-    <rect x="1175" y="230" width="45" height="190" fill="url(#bldg-grad-3)" opacity="0.5"/>
-    <rect x="240" y="250" width="40" height="170" fill="url(#bldg-grad-3)" opacity="0.5"/>
-
-    <!-- DLR elevated track -->
-    <rect x="200" y="350" width="1040" height="6" fill="rgba(164,44,214,0.2)"/>
-    <rect x="200" y="350" width="1040" height="1" fill="rgba(66,191,221,0.15)"/>
-
-    <!-- Water surface -->
-    <rect x="0" y="380" width="1440" height="40" fill="url(#sky-glow)"/>
-
-    <!-- Scattered window glows -->
-    <rect x="575" y="150" width="8" height="6" fill="rgba(238,241,239,0.3)" rx="1"/>
-    <rect x="593" y="150" width="8" height="6" fill="rgba(66,191,221,0.45)" rx="1"/>
-    <rect x="611" y="150" width="8" height="6" fill="rgba(238,241,239,0.25)" rx="1"/>
-    <rect x="470" y="155" width="8" height="6" fill="rgba(66,191,221,0.5)" rx="1"/>
-    <rect x="486" y="155" width="8" height="6" fill="rgba(66,191,221,0.4)" rx="1"/>
-    <rect x="875" y="160" width="8" height="6" fill="rgba(239,206,250,0.45)" rx="1"/>
-    <rect x="891" y="160" width="8" height="6" fill="rgba(125,152,161,0.35)" rx="1"/>
-  </svg>
-
-  <!-- Water reflection -->
-  <div class="cm-hero-water" aria-hidden="true"></div>
-
-  <div class="cm-hero-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,35 C360,70 1080,0 1440,35 L1440,70 L0,70 Z" fill="#ffffff"/>
-    </svg>
-  </div>
-</section>
-
-<!-- ── COUNTDOWN ─────────────────────────────────────────── -->
-<section class="cm-countdown" aria-label="Event countdown">
+<!-- ── HERO ───────────────────────────────────────────── -->
+<section class="cm-ws-hero">
   <div class="cm-container">
-    <div class="cm-countdown-inner">
-      <p class="cm-countdown-label">Countdown to the <strong>final Agent Den</strong></p>
-      <div class="cm-countdown-display" id="countdown" aria-live="polite" aria-atomic="true">
-        <div class="cm-unit">
-          <span class="cm-unit-val" id="cd-days">--</span>
-          <span class="cm-unit-label">Days to go</span>
-        </div>
-      </div>
-      <p class="cm-countdown-sub">17 June 2026</p>
-      <p class="cm-live-msg" id="countdown-live" hidden aria-live="assertive">
-        🎉 The event is live! Welcome to the Capital Markets Agentic Den.
-      </p>
+    <p class="cm-ws-eyebrow">Session One · Co-Pilot Track</p>
+    <h1 class="cm-ws-title">AI-Assisted Trade Surveillance</h1>
+    <p style="font-size:1.05rem; color: var(--text-muted); max-width: 720px; line-height: 1.65;">
+      Alert fatigue is quietly breaking surveillance desks. Analysts triage thousands of false positives a day, burying the signals that actually matter. In this session, we'll build a Co-Pilot agent that helps surveillance teams cut through the noise — live, start to finish.
+    </p>
+    <div class="cm-ws-meta">
+      <span class="cm-ws-meta-item">📅 <strong>29 April 2026</strong></span>
+      <span class="cm-ws-meta-item">⏱ <strong>1 hour</strong></span>
+      <span class="cm-ws-meta-item"><strong>Prerequisites:</strong> Co-Pilot &amp; Claude licences · bring your laptop</span>
     </div>
   </div>
 </section>
 
-<!-- ── FEATURES ───────────────────────────────────────────── -->
-<section class="cm-features" aria-label="Key features">
+<!-- ── BODY ───────────────────────────────────────────── -->
+<section class="cm-ws-body">
   <div class="cm-container">
-    <div class="cm-features-head cm-reveal">
-      <h2 class="cm-features-title">What to Expect</h2>
-      <p class="cm-features-lead">Live demos, curated workshops, and a competitive route to the final Agent Den.</p>
-    </div>
-    <div class="cm-features-grid">
-      <div class="cm-feature-card cm-reveal">
-        <div class="cm-feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
-        <h4 class="cm-feature-title">Live Agent Demos</h4>
-        <p class="cm-feature-desc">Watch agentic AI systems execute real capital markets tasks — live, unscripted, and evaluated by domain experts.</p>
-        <div class="cm-session-buttons">
-          <a href="workshops.html" class="cm-session-btn"><strong>Session One · Co-Pilot Track</strong>AI-Assisted Trade Surveillance</a>
-          <a href="workshops.html" class="cm-session-btn"><strong>Session Two · Co-Pilot Track</strong>Agent-Assisted Risk Reporting</a>
-        </div>
-      </div>
-      <div class="cm-feature-card cm-reveal cm-reveal-delay-1">
-        <div class="cm-feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
-        <h4 class="cm-feature-title">Multi-Track Sessions</h4>
-        <p class="cm-feature-desc">Co-Pilot and Claude tracks — curated workshops alternating lunchtime and after-work so there's always a slot.</p>
-        <div class="cm-session-buttons">
-          <a href="workshops.html" class="cm-session-btn"><strong>Session One · Claude Track</strong>Governed AI in Regulated Markets</a>
-          <a href="workshops.html" class="cm-session-btn"><strong>Session Two · Claude Track</strong>Client-Delivery Agents</a>
-        </div>
-      </div>
-      <div class="cm-feature-card cm-reveal cm-reveal-delay-2">
-        <div class="cm-feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <h4 class="cm-feature-title">Submit &amp; Compete</h4>
-        <p class="cm-feature-desc">Enter across three categories — revenue generation, pace &amp; productivity, or client delivery. Top 6 present to a senior panel.</p>
-        <a href="#" class="cm-read-link cta-link" data-url-key="SUBMISSION_FORM_URL">Submit Now</a>
-      </div>
-      <div class="cm-feature-card cm-reveal cm-reveal-delay-3">
-        <div class="cm-feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h4 class="cm-feature-title">Expert Network</h4>
-        <p class="cm-feature-desc">Connect with quants, technologists, and AI engineers building the next generation of capital markets intelligence.</p>
-        <a href="#about" class="cm-read-link">Meet the Team</a>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="cm-ws-layout">
+      <main>
 
-<!-- ── SESSIONS: CO-PILOT ─────────────────────────────────── -->
-<section id="sessions" class="cm-sessions cm-sessions--copilot" aria-labelledby="copilot-heading">
-  <div class="cm-container">
-    <p class="cm-section-eyebrow">Track One</p>
-    <h2 class="cm-section-title" id="copilot-heading">Co-Pilot Sessions</h2>
-    <p class="cm-section-lead">Explore how AI co-pilots are transforming front-office workflows across trading, risk, and operations. Submissions open 29 April — Workshop 2 deadline 6 May.</p>
-    <div class="cm-cards cm-cards--three" role="list">
-      <article class="cm-card cm-reveal" role="listitem">
-        <p class="cm-card-eyebrow">Session One &middot; Co-Pilot Track</p>
-        <p class="cm-card-title">AI-Assisted Trade Surveillance</p>
-        <p class="cm-card-desc">How agentic co-pilots are augmenting surveillance workflows — flagging anomalies, drafting escalation notes, and reducing analyst fatigue in real time.</p>
-        <div class="cm-card-meta">
-          <span class="cm-card-tag">Compliance</span>
-          <span class="cm-card-tag cm-card-tag--sky">Co-Pilot</span>
+        <!-- Today's Structure -->
+        <div class="cm-ws-section">
+          <h2 class="cm-ws-section-title">Today's structure</h2>
+          <p style="margin-bottom: 1rem;">A persona-led use-case, end to end:</p>
+          <ol class="cm-ws-numlist">
+            <li><strong>Meet the persona.</strong> We'll get to know Fiona, a real-world surveillance analyst, and understand her daily pain.</li>
+            <li><strong>Define the problem.</strong> We'll use the <em>How Might We?</em> method to turn her pain into a framed opportunity.</li>
+            <li><strong>Ideate agents.</strong> We'll use the <em>AI Idea Matrix</em> to generate candidate agents and pick the strongest one.</li>
+            <li><strong>Build live.</strong> We'll demo the winning agent together. Follow along and build the same one, or adapt it to your own use-case.</li>
+            <li><strong>Show &amp; tell.</strong> We'll close with a quick peer review. Volunteering to share is the fastest way to get useful feedback.</li>
+          </ol>
         </div>
-      </article>
-      <article class="cm-card cm-reveal cm-reveal-delay-1" role="listitem">
-        <p class="cm-card-eyebrow">Session Two &middot; Co-Pilot Track</p>
-        <p class="cm-card-title">Agent-Assisted Risk Reporting</p>
-        <p class="cm-card-desc">Automating the daily risk pack — from data pull to narrative summary — so risk teams spend time on decisions, not dashboards.</p>
-        <div class="cm-card-meta">
-          <span class="cm-card-tag">Risk</span>
-          <span class="cm-card-tag cm-card-tag--sky">Co-Pilot</span>
-        </div>
-      </article>
-      <article class="cm-card cm-reveal cm-reveal-delay-2" role="listitem">
-        <p class="cm-card-eyebrow">Session Three &middot; Co-Pilot Track</p>
-        <p class="cm-card-title">To Be Announced</p>
-        <p class="cm-card-desc">Topic and speakers coming soon — stay tuned.</p>
-        <div class="cm-card-meta">
-          <span class="cm-card-tag cm-card-tag--sky">Co-Pilot</span>
-        </div>
-      </article>
-    </div>
-    <p class="cm-footnote">Full session details confirmed closer to the date. Topics subject to change.</p>
-  </div>
-</section>
 
-<!-- ── SESSIONS: CLAUDE ───────────────────────────────────── -->
-<section class="cm-sessions cm-sessions--claude" aria-labelledby="claude-heading">
-  <div class="cm-container">
-    <p class="cm-section-eyebrow">Track Two</p>
-    <h2 class="cm-section-title" id="claude-heading">Claude Sessions</h2>
-    <p class="cm-section-lead">Deep-dive sessions on deploying Claude in complex, regulated financial environments. Submissions open 20 May — Workshop 2 deadline 5 June.</p>
-    <div class="cm-cards cm-cards--three" role="list">
-      <article class="cm-card cm-reveal" role="listitem">
-        <p class="cm-card-eyebrow">Session One &middot; Claude Track</p>
-        <p class="cm-card-title">Governed AI in Regulated Markets</p>
-        <p class="cm-card-desc">Building Claude agents that operate within regulatory constraints — audit trails, explainability, and human-in-the-loop design patterns.</p>
-        <div class="cm-card-meta">
-          <span class="cm-card-tag">Governance</span>
-          <span class="cm-card-tag" style="background:rgba(164,44,214,0.1);border-color:rgba(164,44,214,0.2);color:var(--purple);">Claude</span>
+        <!-- Learning Outcomes -->
+        <div class="cm-ws-section">
+          <h2 class="cm-ws-section-title">Learning outcomes</h2>
+          <p>By the end of this session, participants will be able to:</p>
+          <ul class="cm-ws-list">
+            <li>Use the <strong>problem-definition method</strong> to frame a real surveillance use-case from a specific persona's perspective.</li>
+            <li>Apply the <strong>AI matrix</strong> to ideate and prioritise candidate agents for a defined problem.</li>
+            <li>Build and demo a working Co-Pilot agent, and iterate on it based on peer feedback.</li>
+          </ul>
         </div>
-      </article>
-      <article class="cm-card cm-reveal cm-reveal-delay-1" role="listitem">
-        <p class="cm-card-eyebrow">Session Two &middot; Claude Track</p>
-        <p class="cm-card-title">Client Delivery Agents</p>
-        <p class="cm-card-desc">From pitch book generation to post-trade reporting — real examples of Claude agents cutting delivery time and improving quality for clients.</p>
-        <div class="cm-card-meta">
-          <span class="cm-card-tag">Client Delivery</span>
-          <span class="cm-card-tag" style="background:rgba(164,44,214,0.1);border-color:rgba(164,44,214,0.2);color:var(--purple);">Claude</span>
+
+        <!-- Resources -->
+        <div class="cm-ws-section">
+          <h2 class="cm-ws-section-title">Resources</h2>
+          <ul class="cm-ws-list">
+            <li><a href="#" class="cm-placeholder">[Problem Definition Agent — paste link]</a></li>
+            <li><a href="#" class="cm-placeholder">[AI Matrix Agent — paste link]</a></li>
+            <li><a href="#" class="cm-placeholder">[Data Creation Agent — paste link]</a></li>
+            <li><a href="#" class="cm-placeholder">[Session Data Pack (includes prompt) — paste link]</a></li>
+          </ul>
         </div>
-      </article>
-      <article class="cm-card-locked cm-reveal cm-reveal-delay-2" role="listitem" aria-label="Session Three — coming soon" aria-disabled="true">
-        <div class="cm-lock-pill" aria-hidden="true">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4" stroke-linecap="round"/></svg>
-          Coming Soon
+
+        <!-- Persona -->
+        <div class="cm-ws-section">
+          <h2 class="cm-ws-section-title">Persona — Setting the scene</h2>
+          <div class="cm-persona">
+            <div class="cm-persona-avatar" aria-hidden="true">FR</div>
+            <div>
+              <p class="cm-persona-name">Fiona Ross</p>
+              <p class="cm-persona-role">L2 Surveillance Analyst · Mid-tier bank, London</p>
+              <p>Fiona opens her alert queue each morning to <strong>600–900 new items</strong>. Around <strong>97%</strong> are false positives — the same patterns she's cleared a thousand times before. The one alert that matters is buried somewhere in the middle.</p>
+              <p>She has MAR deadlines on every escalation, an L3 reviewer who pushes back on weak rationale, and a compliance officer asking why the team keeps missing the interesting ones. She doesn't need a smarter model — she needs a <strong>co-pilot that triages faster, drafts her escalation notes, and points her attention at the alerts that deserve it</strong>.</p>
+              <div class="cm-persona-tags">
+                <span class="cm-persona-tag">Alert fatigue</span>
+                <span class="cm-persona-tag">97% false positives</span>
+                <span class="cm-persona-tag">MAR deadlines</span>
+                <span class="cm-persona-tag">Escalation drafting</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <p class="cm-card-tag-plain">Session Three &middot; Claude Track</p>
-        <p class="cm-card-title-grey">To Be Announced</p>
-        <p class="cm-card-desc-grey">Details for the third Claude session will be confirmed in May. Check back here for updates.</p>
-      </article>
-    </div>
-    <p class="cm-footnote">Please check back on the session date for more information.</p>
-  </div>
-</section>
 
-<!-- ── HOW TO SUBMIT ──────────────────────────────────────── -->
-<section class="cm-how-to" aria-labelledby="how-heading">
-  <div class="cm-container">
-    <p class="cm-section-eyebrow">Getting Involved</p>
-    <h2 class="cm-section-title" id="how-heading">How to Submit</h2>
-    <p class="cm-section-lead">Four steps from idea to the judging panel. You can start building before a session — independent submissions are welcome.</p>
-    <div class="cm-steps">
-      <div class="cm-step cm-reveal">
-        <div class="cm-step-number">1</div>
-        <p class="cm-step-title">Attend a Workshop</p>
-        <p class="cm-step-desc">Join a Co-Pilot or Claude workshop session. Build foundational skills and get inspired by live demos. At least one session is strongly recommended.</p>
-      </div>
-      <div class="cm-step cm-reveal cm-reveal-delay-1">
-        <div class="cm-step-number">2</div>
-        <p class="cm-step-title">Build Your Agent</p>
-        <p class="cm-step-desc">Use the session use-case or your own idea. Support is available throughout. Agents can target revenue generation, pace &amp; productivity, or client delivery.</p>
-      </div>
-      <div class="cm-step cm-reveal cm-reveal-delay-2">
-        <div class="cm-step-number">3</div>
-        <p class="cm-step-title">Submit via the Form</p>
-        <p class="cm-step-desc">Submit your agent using the Sign-Up form before the track deadline. Include a short description, your use-case, and a demo if possible.</p>
-      </div>
-      <div class="cm-step cm-reveal cm-reveal-delay-3">
-        <div class="cm-step-number">4</div>
-        <p class="cm-step-title">Present to the Panel</p>
-        <p class="cm-step-desc">Top 6 submissions are invited to present to a senior judging panel at the Agentic Den finale. Finalists earn recognition points and practice-wide visibility.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── THE DEN + GAP + WORKSHOPS ─────────────────────────── -->
-<section id="the-den" class="cm-competition" aria-labelledby="competition-heading">
-  <div class="cm-container">
-    <p class="cm-section-eyebrow">How It Works</p>
-    <h2 class="cm-section-title" id="competition-heading">The Agentic Den</h2>
-    <p class="cm-section-lead">A practice-wide showcase and competition designed to close the gap between knowing about agentic AI and using it every day.</p>
-    <div class="cm-competition-grid">
-      <div class="cm-gap-panel cm-reveal">
-        <h3>The Gap</h3>
-        <p>Capital Markets has a knowledge and application gap — our people aren't using agentic AI day-to-day, and it's showing up in how we serve clients.</p>
-        <p class="cm-gap-eyebrow">Skill Levels Today</p>
-        <div class="cm-skill-levels">
-          <div class="cm-skill-level cm-skill-level--1"><strong>Group 1 · Aware</strong>Knows the terminology. Never built an agent.</div>
-          <div class="cm-skill-level cm-skill-level--2"><strong>Group 2 · Capable</strong>Has built one — but not using agents day to day.</div>
-          <div class="cm-skill-level cm-skill-level--3"><strong>Group 3 · Embedded</strong>Regularly builds, ideates, and shares with the team.</div>
-        </div>
-        <p class="cm-gap-goal">Goal: bring everyone to Group 3.</p>
-      </div>
-      <div class="cm-den-panel cm-reveal cm-reveal-delay-1">
-        <h3>The Competition</h3>
-        <h2>Agent Den</h2>
-        <ul class="cm-den-list">
-          <li>Practice-wide showcase — agents built in workshops or independently</li>
-          <li>Submit via the Sign-Up form. Top 6 present to a senior judging panel.</li>
-          <li>Judged across: problem definition, design, value, and governance</li>
-          <li>Finalists earn recognition points. Winner gets practice-wide recognition + a year's AI subscription.</li>
-        </ul>
-        <p class="cm-den-categories">Submission categories: <strong>revenue generation · pace and productivity · client delivery</strong></p>
-      </div>
-      <div class="cm-workshops-panel cm-reveal cm-reveal-delay-2">
-        <h3>Supporting Workshops</h3>
-        <p>Sessions alternate between lunchtime and after-work, so there's a slot for everyone. <strong>We request at least one session is made mandatory.</strong></p>
-        <p class="cm-workshop-eyebrow">Workshop Structure</p>
-        <div class="cm-workshop-steps">
-          <div class="cm-workshop-step"><h4>Design Thinking / Demo</h4><ul><li>Problem framing</li><li>AI matrix ideation</li><li>Build focused demo</li></ul></div>
-          <div class="cm-workshop-step"><h4>Agent Building Time</h4><ul><li>Use-case of the session or their own</li><li>Support available throughout</li></ul></div>
-          <div class="cm-workshop-step"><h4>Show-and-Tell / Feedback</h4><ul><li>Cross-evaluation of agents using criteria</li><li>Show-and-tell</li></ul></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── JUDGING CRITERIA ───────────────────────────────────── -->
-<section class="cm-judging" aria-labelledby="judging-heading">
-  <div class="cm-container">
-    <p class="cm-section-eyebrow">How You'll Be Judged</p>
-    <h2 class="cm-section-title" id="judging-heading">Judging Criteria</h2>
-    <p class="cm-section-lead">Every submission is evaluated across four equally-weighted dimensions by a senior panel.</p>
-    <div class="cm-criteria-grid">
-      <div class="cm-criterion cm-reveal">
-        <div class="cm-criterion-num">01</div>
-        <p class="cm-criterion-label">Problem Definition</p>
-        <p class="cm-criterion-desc">Is the problem real, well-scoped, and worth solving? Does the agent address a genuine pain point in capital markets?</p>
-      </div>
-      <div class="cm-criterion cm-reveal cm-reveal-delay-1">
-        <div class="cm-criterion-num">02</div>
-        <p class="cm-criterion-label">Design</p>
-        <p class="cm-criterion-desc">Is the agent well-architected? Does it handle edge cases, errors, and user experience thoughtfully?</p>
-      </div>
-      <div class="cm-criterion cm-reveal cm-reveal-delay-2">
-        <div class="cm-criterion-num">03</div>
-        <p class="cm-criterion-label">Value</p>
-        <p class="cm-criterion-desc">What is the measurable impact — time saved, revenue generated, or quality improved? Can it scale?</p>
-      </div>
-      <div class="cm-criterion cm-reveal cm-reveal-delay-3">
-        <div class="cm-criterion-num">04</div>
-        <p class="cm-criterion-label">Governance</p>
-        <p class="cm-criterion-desc">Is it safe, auditable, and compliant? Does it include human-in-the-loop controls appropriate for a regulated environment?</p>
-      </div>
-    </div>
-    <div class="cm-prize-banner cm-reveal">
-      <div class="cm-prize-text">
-        <h3>🏆 What the Winner Gets</h3>
-        <p>Finalists earn recognition points and practice-wide visibility. The overall winner receives a prize package worth celebrating.</p>
-      </div>
-      <div class="cm-prize-items">
-        <div class="cm-prize-item">(Agent) Masters Gilet</div>
-        <div class="cm-prize-item">Practice-wide recognition</div>
-        <div class="cm-prize-item">1 year AI subscription</div>
-        <div class="cm-prize-item">Recognition points</div>
-        <div class="cm-prize-item">Senior panel feedback</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── TIMELINE ───────────────────────────────────────────── -->
-<section id="timeline" class="cm-timeline-section" aria-labelledby="timeline-heading">
-  <div class="cm-container">
-    <p class="cm-section-eyebrow">Key Dates</p>
-    <h2 class="cm-section-title" id="timeline-heading">Timeline</h2>
-    <div class="cm-timeline-legend">
-      <div class="cm-legend-item"><span class="cm-legend-dot cm-legend-dot--copilot"></span> Copilot track</div>
-      <div class="cm-legend-item"><span class="cm-legend-dot cm-legend-dot--claude"></span> Claude track</div>
-      <div class="cm-legend-item"><span class="cm-legend-star">★</span> Agentic Den finale</div>
-    </div>
-    <div class="cm-timeline-tracks">
-      <div class="cm-track cm-reveal">
-        <div class="cm-track-header"><span class="cm-track-dot cm-track-dot--copilot"></span><span class="cm-track-name">Copilot Track</span></div>
-        <div class="cm-track-milestones">
-          <div class="cm-milestone"><p class="cm-milestone-date">29 April</p><p class="cm-milestone-label">Workshop 1 · Submissions open</p></div>
-          <div class="cm-milestone"><p class="cm-milestone-date">6 May</p><p class="cm-milestone-label">Workshop 2 · Submission deadline</p></div>
-          <div class="cm-milestone cm-milestone--finale"><p class="cm-milestone-date">★ 13 May</p><p class="cm-milestone-label">Agent Den · Copilot finale</p></div>
-        </div>
-      </div>
-      <div class="cm-track cm-reveal cm-reveal-delay-1">
-        <div class="cm-track-header"><span class="cm-track-dot cm-track-dot--claude"></span><span class="cm-track-name">Claude Track</span></div>
-        <div class="cm-track-milestones">
-          <div class="cm-milestone"><p class="cm-milestone-date">20 May</p><p class="cm-milestone-label">Workshop 1 · Submissions open</p></div>
-          <div class="cm-milestone"><p class="cm-milestone-date">3 June</p><p class="cm-milestone-label">Workshop 2</p></div>
-          <div class="cm-milestone"><p class="cm-milestone-date">5 June</p><p class="cm-milestone-label">Submissions close</p></div>
-          <div class="cm-milestone cm-milestone--finale"><p class="cm-milestone-date">★ 10 June</p><p class="cm-milestone-label">Agentic Den finale</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── ROI ────────────────────────────────────────────────── -->
-<section class="cm-roi-section" aria-labelledby="roi-heading">
-  <div class="cm-container">
-    <p class="cm-section-eyebrow">Why It Matters</p>
-    <h2 class="cm-section-title" id="roi-heading">Projected Impact</h2>
-    <p class="cm-section-lead">Every session is designed to produce tangible, measurable output — not just awareness.</p>
-    <div class="cm-roi-grid">
-      <div class="cm-roi-card cm-reveal">
-        <div class="cm-roi-icon">🤖</div>
-        <h4>Agents Built</h4>
-        <p>Every attendee leaves with a working agent — not just watched one. Real capability, deployed by real people.</p>
-      </div>
-      <div class="cm-roi-card cm-reveal cm-reveal-delay-1">
-        <div class="cm-roi-icon">💡</div>
-        <h4>Idea Pipeline</h4>
-        <p>A live log of use cases for internal and client use, built across the programme and ready to action immediately.</p>
-      </div>
-      <div class="cm-roi-card cm-reveal cm-reveal-delay-2">
-        <div class="cm-roi-icon">📈</div>
-        <h4>Skill Uplift</h4>
-        <p>Measurable — we know who can build and what to do next. Every group moves up the skill ladder, across the whole practice.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CALLOUT ────────────────────────────────────────────── -->
-<section class="cm-callout" aria-label="Tagline">
-  <div class="cm-container">
-    <h2 class="cm-callout-text cm-reveal">
-      The future of capital markets is <em>agentic</em> &mdash;
-      and it&rsquo;s <span class="cm-callout-ul">happening now.</span>
-    </h2>
-  </div>
-</section>
-
-<!-- ── ABOUT US ───────────────────────────────────────────── -->
-<section id="about" class="cm-about" aria-labelledby="about-heading">
-  <div class="cm-container">
-    <div class="cm-about-intro cm-reveal">
-      <p class="cm-section-eyebrow">Who We Are</p>
-      <h2 class="cm-section-title" id="about-heading">About Us</h2>
-      <p class="cm-about-lead">The <strong>Capital Markets Agentic Den</strong> is organised by CM.AI and run by two Accenture Management Consulting Analysts — both Exeter graduates — with backgrounds spanning capital markets, AI, financial modelling, and strategy.</p>
-    </div>
-    <div class="cm-team-grid">
-      <div class="cm-team-card cm-reveal">
-        <div><img src="saanvi.png" alt="Saanvi Raghuwanshi" class="cm-team-photo"></div>
-        <div>
-          <div class="cm-team-name-row">
-            <h3 class="cm-team-name">Saanvi Raghuwanshi</h3>
-            <a href="https://www.linkedin.com/in/saanvir/" target="_blank" rel="noopener noreferrer" class="cm-linkedin-btn" aria-label="Saanvi on LinkedIn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-              LinkedIn
+        <!-- Problem Definition (HMW) -->
+        <div class="cm-ws-section">
+          <div class="cm-ws-section-title-row">
+            <h2 class="cm-ws-section-title">Problem Definition — How Might We?</h2>
+            <a href="#" class="cm-agent-pill cm-placeholder" target="_blank" rel="noopener">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+              How Might We? Agent
             </a>
           </div>
-          <p class="cm-team-role">Management Consulting Analyst · Accenture</p>
-          <p class="cm-team-bio">Saanvi is a Management Consulting Analyst at Accenture, having joined full-time in September 2025 following her BSc (Hons) in Accounting and Finance from the University of Exeter Business School. Her background spans financial modelling, data science, and strategy — including an M&A and Transactions Advisory internship at Grant Thornton in Dubai. She brings a strong technical foundation to AI, having designed and coded machine learning classification models during her studies. Since joining Accenture, she has delivered multiple <strong>agentic AI training sessions</strong>, including client-facing workshops. At Exeter she was Operations Lead for Exe Consulting and Project Manager at 180 Degrees Consulting, and she is passionate about applying <strong>agentic AI</strong> to solve real problems in capital markets.</p>
-          <div class="cm-team-tags">
-            <span class="cm-tag">Capital Markets</span>
-            <span class="cm-tag">Agentic AI</span>
-            <span class="cm-tag">Management Consulting</span>
-            <span class="cm-tag">Accenture</span>
+          <p style="margin-bottom: 1.5rem;">We now need to turn Fiona's pain into a <strong>question we can answer</strong>. The <em>How Might We?</em> (HMW) method is a simple way to do that — you phrase the problem as an open question starting with "How might we…". For example: <em>"How might we help Fiona spend less time on false positives?"</em></p>
+
+          <!-- Intro strip: What / Why / Get / Need -->
+          <div class="cm-hmw-intro">
+            <div class="cm-hmw-intro-card">
+              <span class="cm-hmw-intro-num">01</span>
+              <p class="cm-hmw-intro-title">What is it?</p>
+              <p class="cm-hmw-intro-body">A simple phrasing trick: start every problem statement with <em>"How might we…"</em>. It turns a complaint into something you can actively work on.</p>
+            </div>
+            <div class="cm-hmw-intro-card">
+              <span class="cm-hmw-intro-num">02</span>
+              <p class="cm-hmw-intro-title">Why does it work?</p>
+              <p class="cm-hmw-intro-body"><strong>How</strong> assumes a solution exists. <strong>Might</strong> gives permission to be wrong. <strong>We</strong> makes it a team effort. Together, they unlock ideas.</p>
+            </div>
+            <div class="cm-hmw-intro-card">
+              <span class="cm-hmw-intro-num">03</span>
+              <p class="cm-hmw-intro-title">What will you have at the end?</p>
+              <p class="cm-hmw-intro-body">One clear HMW question that captures the real problem — the thing you'll actually build an agent to solve.</p>
+            </div>
+            <div class="cm-hmw-intro-card">
+              <span class="cm-hmw-intro-num">04</span>
+              <p class="cm-hmw-intro-title">How do you do it?</p>
+              <p class="cm-hmw-intro-body">Three steps: generate lots of HMW questions, group the similar ones, pick the best one. Then hand off to ideation.</p>
+            </div>
+          </div>
+
+          <!-- Four stacked step cards -->
+          <div class="cm-hmw-steps">
+
+            <div class="cm-hmw-step">
+              <span class="cm-hmw-step-num">Step 1</span>
+              <p class="cm-hmw-step-title">Get grounded in Fiona's world</p>
+              <p class="cm-hmw-step-body">Before writing any HMW questions, make sure everyone in the room shares the same picture of the problem. Recap who Fiona is, what her day looks like, and which pains matter most. Get a mix of perspectives around the table — the more varied the group, the broader the questions you'll generate.</p>
+            </div>
+
+            <div class="cm-hmw-step">
+              <span class="cm-hmw-step-num">Step 2</span>
+              <p class="cm-hmw-step-title">Generate lots of HMW questions</p>
+              <p class="cm-hmw-step-body">Individually, write as many <em>"How might we…"</em> questions about Fiona's problem as you can. Aim for quantity, not perfection — weird ones are welcome. Then share with the group and build on each other's ideas.</p>
+              <div class="cm-hmw-step-tip"><strong>Golden rule:</strong> the question should not contain a solution. Good: <em>"How might we help Fiona focus on the alerts that matter?"</em> Bad: <em>"How might we build an AI filter for Fiona's alerts?"</em> — the second one has already picked the answer.</div>
+              <div class="cm-hmw-step-body" style="margin-top: 0.65rem;">
+                <p><strong>Template:</strong> <em>How might we [verb] [topic] for [user]?</em> — e.g. <em>"How might we reduce escalation time for Fiona?"</em></p>
+              </div>
+            </div>
+
+            <div class="cm-hmw-step">
+              <span class="cm-hmw-step-num">Step 3</span>
+              <p class="cm-hmw-step-title">Group the similar ones &amp; pick a winner</p>
+              <p class="cm-hmw-step-body">You'll end up with 15–30 HMW questions. Group the ones that are really asking the same thing — this is called <em>clustering</em>. Then as a group, vote on the question that best captures the real problem.</p>
+              <div class="cm-hmw-step-body" style="margin-top: 0.75rem;">
+                <p><strong>Worked example.</strong> Imagine you wrote these five HMWs about Fiona:</p>
+                <ul>
+                  <li>How might we help Fiona finish her queue faster?</li>
+                  <li>How might we reduce the number of false positives Fiona sees?</li>
+                  <li>How might we help Fiona write escalation notes more quickly?</li>
+                  <li>How might we help Fiona spot the real alert hidden in the noise?</li>
+                  <li>How might we help Fiona draft her MAR report faster?</li>
+                </ul>
+                <p style="margin-top: 0.5rem;">Questions 1, 2, and 4 are all really about <strong>triage speed</strong> — they cluster together. Questions 3 and 5 are both about <strong>drafting written outputs</strong> — that's a second cluster. You now have two clear problem areas to choose from, not five scattered ones.</p>
+              </div>
+            </div>
+
+            <div class="cm-hmw-step">
+              <span class="cm-hmw-step-num">Step 4</span>
+              <p class="cm-hmw-step-title">Hand off to the AI Matrix</p>
+              <p class="cm-hmw-step-body">Take your winning HMW question into the <strong>AI Matrix</strong> next — that's where we'll generate candidate agents to answer it, and pick the one we build live.</p>
+            </div>
+
           </div>
         </div>
-      </div>
-      <div class="cm-team-card cm-reveal cm-reveal-delay-1">
-        <div><img src="rosa.png" alt="Rosa Bhanley" class="cm-team-photo"></div>
-        <div>
-          <div class="cm-team-name-row">
-            <h3 class="cm-team-name">Rosa Bhanley</h3>
-            <a href="https://www.linkedin.com/in/rosa-bhanley-1a7488232/" target="_blank" rel="noopener noreferrer" class="cm-linkedin-btn" aria-label="Rosa Bhanley on LinkedIn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-              LinkedIn
+
+        <!-- Ideation — AI Matrix -->
+        <div class="cm-ws-section">
+          <div class="cm-ws-section-title-row">
+            <h2 class="cm-ws-section-title">Ideation — AI Matrix</h2>
+            <a href="#" class="cm-agent-pill cm-placeholder" target="_blank" rel="noopener">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+              AI Matrix Agent
             </a>
           </div>
-          <p class="cm-team-role">Management Consulting Analyst · Accenture</p>
-          <p class="cm-team-bio">Rosa is a Management Consulting Analyst at Accenture, having joined full-time in September 2025 and working across Capital Markets engagements. She graduated with a First Class (Hons) degree in Business and Management from the University of Exeter, where she held leadership roles in the Women in Business and African &amp; Caribbean societies and received a Dean's Commendation. Prior to Accenture, she interned in Investor Relations at CT Partners Group and Bridges Fund Management, where she explored practical applications of <strong>AI</strong> to improve operations and decision-making. Since joining, she has delivered multiple <strong>agentic AI training sessions</strong>, including client-facing workshops. She sits on the Alumni Ambassador Board of upReach, the social mobility charity, and has won a SSMA Outstanding Achievement Award for Professional Services at Mansion House.</p>
-          <div class="cm-team-tags">
-            <span class="cm-tag">Capital Markets</span>
-            <span class="cm-tag">AI &amp; Cloud</span>
-            <span class="cm-tag">Power BI</span>
-            <span class="cm-tag">University of Exeter</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="cm-about-stats-row cm-reveal">
-      <div class="cm-stat"><span class="cm-stat-val">2</span><span class="cm-stat-label">Tracks</span></div>
-      <div class="cm-stat"><span class="cm-stat-val">5</span><span class="cm-stat-label">Sessions</span></div>
-      <div class="cm-stat"><span class="cm-stat-val">1</span><span class="cm-stat-label">Agent Den Finale</span></div>
-      <div class="cm-stat"><span class="cm-stat-val">∞</span><span class="cm-stat-label">Possibilities</span></div>
-    </div>
-  </div>
-</section>
+          <p style="margin-bottom: 1.5rem;">The <strong>AI Idea Matrix</strong> is a version of the Creative Matrix with the columns pre-filled with AI capabilities, reframed as human senses and actions: <strong>See, Read, Listen / Hear, Connect, Predict / Rationalise,</strong> and <strong>Touch / Robotics</strong>. Thinking about AI this way makes it easier to imagine concrete applications — and to spot opportunities you'd miss if you were just listing models.</p>
 
-<!-- ── TESTIMONIALS ───────────────────────────────────────── -->
-<section class="cm-testimonials" aria-label="What people say">
-  <div class="cm-container">
-    <p class="cm-section-eyebrow" style="margin-bottom:0.5rem;">Voices</p>
-    <h2 class="cm-section-title" style="margin-bottom:2.5rem;">What the community says</h2>
-    <div id="cm-testi-slider">
-      <div class="px-2">
-        <div class="cm-testi-card">
-          <span class="cm-testi-quote" aria-hidden="true">&ldquo;</span>
-          <p class="cm-testi-text">A genuinely unique format — watching live agents compete on real market scenarios is unlike any other event in the space.</p>
-          <div class="cm-testi-author">
-            <div class="cm-testi-avatar" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-            <div><p class="cm-testi-name">Alexandra Reid</p><p class="cm-testi-role">Head of Quant Strategy, Tidal Capital</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="px-2">
-        <div class="cm-testi-card">
-          <span class="cm-testi-quote" aria-hidden="true">&ldquo;</span>
-          <p class="cm-testi-text">The most practically relevant AI event I've attended in financial services. No hype — just working agents doing real things.</p>
-          <div class="cm-testi-author">
-            <div class="cm-testi-avatar" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-            <div><p class="cm-testi-name">James Thornton</p><p class="cm-testi-role">CTO, Reef Technologies</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="px-2">
-        <div class="cm-testi-card">
-          <span class="cm-testi-quote" aria-hidden="true">&ldquo;</span>
-          <p class="cm-testi-text">Submitting our agent was straightforward and the feedback from the panel was genuinely valuable for our roadmap.</p>
-          <div class="cm-testi-author">
-            <div class="cm-testi-avatar" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-            <div><p class="cm-testi-name">Sara Nilsson</p><p class="cm-testi-role">VP Engineering, Nordic Prime</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="px-2">
-        <div class="cm-testi-card">
-          <span class="cm-testi-quote" aria-hidden="true">&ldquo;</span>
-          <p class="cm-testi-text">CM.AI has built something special here. The quality of submissions and the calibre of discussion was exceptional.</p>
-          <div class="cm-testi-author">
-            <div class="cm-testi-avatar" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-            <div><p class="cm-testi-name">Kwame Asante</p><p class="cm-testi-role">Head of AI, Meridian Markets</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+          <div class="cm-hmw-steps">
 
-<!-- ── LEARN MORE ─────────────────────────────────────────── -->
-<section id="learn-more" class="cm-learn" aria-labelledby="learn-heading">
-  <div class="cm-container">
-    <p class="cm-section-eyebrow">Get Involved</p>
-    <h2 class="cm-section-title" id="learn-heading">Ready to Enter?</h2>
-    <p class="cm-section-lead" style="margin-bottom:0;">Your starting points for submitting an agent or tracking the competition.</p>
-    <div class="cm-learn-cards">
-      <div class="cm-learn-card cm-reveal">
-        <div class="cm-learn-icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+            <div class="cm-hmw-step">
+              <span class="cm-hmw-step-num">Step 1</span>
+              <p class="cm-hmw-step-title">Break down the HMW into pain points</p>
+              <p class="cm-hmw-step-body">A pain point is a <strong>specific</strong> moment of friction in Fiona's day — something small, concrete, and observable. Good pain points are things you could watch over her shoulder and see. Bad pain points are vague statements like "she's overwhelmed" or "the system is old".</p>
+              <p class="cm-hmw-step-body" style="margin-top: 0.65rem;">To find them, take your winning HMW question and ask: <em>"What are all the moments that make this hard for Fiona?"</em> Individually, list everything you can think of — aim for 10–20.</p>
+
+              <div class="cm-hmw-step-body" style="margin-top: 0.75rem;">
+                <p><strong>Worked example.</strong> HMW: <em>"How might we help Fiona focus on the alerts that matter?"</em></p>
+                <p style="margin-top: 0.4rem;">Pain points a new analyst might list:</p>
+                <ul>
+                  <li>The alert queue doesn't show which alerts are most urgent.</li>
+                  <li>She has to re-read the same typology rules every time.</li>
+                  <li>She can't tell at a glance if a client has a repeating pattern.</li>
+                  <li>Alerts don't carry context from the previous day.</li>
+                  <li>She types the same escalation rationale over and over.</li>
+                  <li>The MAR deadline clock is always in her head.</li>
+                  <li>The L3 reviewer pushes back on weak rationale.</li>
+                  <li>Half her morning is spent on alerts she's already seen cleared before.</li>
+                </ul>
+                <p style="margin-top: 0.5rem;">Notice: each one is <strong>a specific task, moment, or blocker</strong> — not a vague feeling.</p>
+              </div>
+
+              <p class="cm-hmw-step-body" style="margin-top: 0.75rem;">Once everyone's list is shared, <strong>cluster</strong> the pain points into 3–5 problem areas. These become the <strong>rows of your matrix</strong>.</p>
+
+              <details class="cm-explainer">
+                <summary>How do I cluster, in practice?</summary>
+                <div class="cm-explainer-body">
+
+                  <div style="padding: 0.25rem 0 1rem;">
+                    <p style="margin-bottom: 0.75rem;"><strong>The idea:</strong> some of your pain points are secretly talking about the same underlying problem. Clustering is just putting those together and giving each group a name.</p>
+                    <p><strong>How to do it:</strong></p>
+                  </div>
+
+                  <div class="cm-hmw-steps">
+                    <div class="cm-hmw-step">
+                      <span class="cm-hmw-step-num">Step 1</span>
+                      <p class="cm-hmw-step-title">Put every pain point on its own sticky</p>
+                      <p class="cm-hmw-step-body">Physical stickies on a wall or digital cards on a Mural/Whiteboard — either works. One pain point per sticky. Don't try to sort them yet.</p>
+                    </div>
+                    <div class="cm-hmw-step">
+                      <span class="cm-hmw-step-num">Step 2</span>
+                      <p class="cm-hmw-step-title">Read one sticky, then look for its siblings</p>
+                      <p class="cm-hmw-step-body">Pick any sticky. Ask: <em>"Which other stickies are really about the same thing?"</em> Move them next to each other. Don't worry about naming the group yet — just let the shape emerge.</p>
+                    </div>
+                    <div class="cm-hmw-step">
+                      <span class="cm-hmw-step-num">Step 3</span>
+                      <p class="cm-hmw-step-title">Keep going until nothing's left alone</p>
+                      <p class="cm-hmw-step-body">Some stickies will cluster fast. Others won't fit anywhere — that's a signal they might be their own cluster, or they might not be pain points at all. Discuss as a group.</p>
+                    </div>
+                    <div class="cm-hmw-step">
+                      <span class="cm-hmw-step-num">Step 4</span>
+                      <p class="cm-hmw-step-title">Name each cluster in plain English</p>
+                      <p class="cm-hmw-step-body">Give each group a short, neutral label — not a solution. "Queue prioritisation" is a good cluster name. "AI ranking system" is not, because it's a solution already.</p>
+                    </div>
+                  </div>
+
+                  <div style="margin-top: 1.5rem; padding: 1rem 1.15rem; background: #fff; border: 1px solid rgba(164,44,214,0.15); border-radius: 8px;">
+                    <p style="font-weight: 800; color: var(--deep); margin-bottom: 0.5rem; font-size: 0.95rem;">Worked example — Fiona's pain points, clustered</p>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.75rem;">Taking the 8 pain points from Step 1 above:</p>
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 0.6rem;">
+                      <div style="padding: 0.7rem 0.85rem; background: var(--surface-2); border-radius: 6px;">
+                        <p style="font-size: 0.82rem; font-weight: 800; color: var(--purple); margin-bottom: 0.3rem;">Cluster A · Queue prioritisation</p>
+                        <p style="font-size: 0.85rem; color: var(--text); line-height: 1.55;">• Alert queue doesn't show urgency &nbsp;• Can't tell if a client has a repeating pattern &nbsp;• Half her morning on already-cleared patterns</p>
+                      </div>
+                      <div style="padding: 0.7rem 0.85rem; background: var(--surface-2); border-radius: 6px;">
+                        <p style="font-size: 0.82rem; font-weight: 800; color: var(--purple); margin-bottom: 0.3rem;">Cluster B · Context &amp; memory</p>
+                        <p style="font-size: 0.85rem; color: var(--text); line-height: 1.55;">• Re-reads typology rules every time &nbsp;• Alerts don't carry context from the previous day</p>
+                      </div>
+                      <div style="padding: 0.7rem 0.85rem; background: var(--surface-2); border-radius: 6px;">
+                        <p style="font-size: 0.82rem; font-weight: 800; color: var(--purple); margin-bottom: 0.3rem;">Cluster C · Drafting &amp; defending decisions</p>
+                        <p style="font-size: 0.85rem; color: var(--text); line-height: 1.55;">• Types the same rationale over and over &nbsp;• MAR deadline pressure &nbsp;• L3 reviewer pushes back on weak rationale</p>
+                      </div>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.55;">Eight scattered pain points just became three clear problem areas — the rows of Fiona's AI Matrix.</p>
+                  </div>
+
+                </div>
+              </details>
+            </div>
+
+            <div class="cm-hmw-step">
+              <span class="cm-hmw-step-num">Step 2</span>
+              <p class="cm-hmw-step-title">Read across the AI senses</p>
+              <p class="cm-hmw-step-body">For each problem area, work down the columns and ask what each AI capability could unlock:</p>
+              <div class="cm-hmw-step-body">
+                <ul>
+                  <li><strong>See</strong> — image and video understanding (e.g. chart reading, document scanning).</li>
+                  <li><strong>Read</strong> — text comprehension, extraction, classification.</li>
+                  <li><strong>Listen / Hear</strong> — speech, call transcription, audio signals.</li>
+                  <li><strong>Connect</strong> — linking, retrieval, knowledge graphs, search.</li>
+                  <li><strong>Predict / Rationalise</strong> — forecasting, reasoning, decision support.</li>
+                  <li><strong>Touch / Robotics</strong> — physical action and process automation.</li>
+                </ul>
+              </div>
+              <div class="cm-hmw-step-tip"><strong>Non-AI ideas are welcome</strong> — capture them separately. Not every problem needs a model.</div>
+            </div>
+
+            <div class="cm-hmw-step">
+              <span class="cm-hmw-step-num">Step 3</span>
+              <p class="cm-hmw-step-title">Combine &amp; prioritise</p>
+              <p class="cm-hmw-step-body">Look across the matrix for ideas that can combine across capabilities. Vote to surface the strongest candidates.</p>
+            </div>
+
+            <div class="cm-hmw-step">
+              <span class="cm-hmw-step-num">Step 4</span>
+              <p class="cm-hmw-step-title">Pressure-test the winner</p>
+              <p class="cm-hmw-step-body">For your top idea, answer two questions before you build:</p>
+              <div class="cm-hmw-step-body">
+                <ul>
+                  <li>Can we combine AI technologies here into a single cohesive solution?</li>
+                  <li>What data do we need to make it work?</li>
+                </ul>
+              </div>
+              <div class="cm-hmw-step-tip"><strong>Next:</strong> We take the winning idea straight into the live build.</div>
+            </div>
+
+          </div>
         </div>
-        <h3>Submission Form</h3>
-        <p>Submit your agentic AI project for review by the CM.AI team. Selected submissions will be featured at the live event. Include a short description, use-case, and demo if possible.</p>
-        <span class="btn btn-primary btn-locked" aria-disabled="true">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Submissions open 29 April
-        </span>
-      </div>
-      <div class="cm-learn-card cm-reveal cm-reveal-delay-1">
-        <div class="cm-learn-icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+
+        <!-- Demo -->
+        <div class="cm-ws-section">
+          <h2 class="cm-ws-section-title">Demo</h2>
+          <div class="cm-ws-video-wrap">
+            <video
+              controls
+              preload="metadata"
+              poster="workshop-copilot-1-poster.jpg"
+              playsinline>
+              <source src="workshop-copilot-1.mp4" type="video/mp4">
+              Your browser doesn't support embedded video. You can
+              <a href="workshop-copilot-1.mp4">download the demo here</a>.
+            </video>
+          </div>
+          <p class="cm-ws-video-caption">Live walkthrough of the agent built during the session.</p>
         </div>
-        <h3>Excel Agent Tracker</h3>
-        <p>Monitor submitted agents, their assigned tracks, and real-time status updates as the event approaches. Updated live by the CM.AI team.</p>
-        <a href="#" class="btn btn-primary cta-link" data-url-key="TRACKER_URL">Open Tracker →</a>
-      </div>
+
+      </main>
+
     </div>
   </div>
 </section>
