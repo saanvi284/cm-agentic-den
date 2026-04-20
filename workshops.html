@@ -708,6 +708,30 @@
       box-shadow: none;
     }
 
+    /* Unlocked card variant — white bg, purple accent, inviting CTA pill */
+    .cm-wk-card--unlocked {
+      background: #ffffff;
+      border: 1px solid var(--purple-border);
+      border-left: 4px solid var(--purple);
+    }
+    .cm-wk-card--unlocked::before { display: none; }
+    .cm-wk-card--unlocked .cm-wk-card-eyebrow { color: var(--purple); }
+    .cm-wk-card--unlocked .cm-wk-card-title { color: var(--deep); }
+    .cm-wk-card--unlocked .cm-wk-card-desc { color: var(--text); }
+    .cm-wk-card--unlocked .cm-wk-card-cta {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+      font-size: 0.78rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: #fff; background: var(--purple);
+      padding: 0.55rem 1rem;
+      border-radius: 6px;
+      margin-top: 0.5rem;
+      transition: background 0.15s ease;
+    }
+    .cm-wk-card-link:hover .cm-wk-card--unlocked .cm-wk-card-cta {
+      background: #8e20bd;
+    }
+
     /* Finale button band */
     .cm-finale-band {
       padding: 4rem 0 5rem;
@@ -798,15 +822,14 @@
   <div class="cm-container">
     <h2 class="cm-track-heading">Co-Pilot Track</h2>
     <div class="cm-cards cm-cards--two" role="list">
-      <a href="workshop-copilot-1.html" class="cm-wk-card-link cm-wk-card--locked" aria-disabled="true">
-        <article class="cm-wk-card" role="listitem">
-          <div class="cm-wk-lock" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          </div>
+      <a href="workshop-copilot-1.html" class="cm-wk-card-link">
+        <article class="cm-wk-card cm-wk-card--unlocked" role="listitem">
           <p class="cm-wk-card-eyebrow">Session One · Co-Pilot Track</p>
           <h3 class="cm-wk-card-title">AI-Assisted Trade Surveillance</h3>
           <p class="cm-wk-card-desc">How agentic co-pilots are augmenting surveillance workflows — flagging anomalies, drafting escalation notes, and reducing analyst fatigue in real time.</p>
-          <p class="cm-wk-card-release">Curriculum releases 29 April</p>
+          <span class="cm-wk-card-cta">View session
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
         </article>
       </a>
       <article class="cm-wk-card" role="listitem" aria-disabled="true">
